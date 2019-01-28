@@ -42,3 +42,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
+
+path 'engines' do
+  gem 'attendance'
+  gem 'candidate'
+  gem 'entity'
+  gem 'external'
+end

@@ -1,0 +1,30 @@
+%form
+  .row
+    .col-md-6
+      .form-group
+        %input#exampleFormControlInput1.form-control{:placeholder => "name@example.com", :type => "email"}/
+    .col-md-6
+      .form-group
+        %input.form-control{:disabled => "disabled", :placeholder => "Regular", :type => "text"}/
+  .row
+    .col-md-6
+      .form-group
+        .input-group.mb-4
+          .input-group-prepend
+            %span.input-group-text
+              %i.ni.ni-zoom-split-in
+          %input.form-control{:placeholder => "Search", :type => "text"}/
+    .col-md-6
+      .form-group
+        .input-group.mb-4
+          %input.form-control{:placeholder => "Birthday", :type => "text"}/
+          .input-group-append
+            %span.input-group-text
+              %i.ni.ni-zoom-split-in
+  .row
+    .col-md-6
+      .form-group.has-success
+        %input.form-control.is-valid{:placeholder => "Success", :type => "text"}/
+    .col-md-6
+      .form-group.has-danger
+        %input.form-control.is-invalid{:placeholder => "Error Input", :type => "email"}/

@@ -11,6 +11,18 @@ GIT
       rails (~> 5.2.0)
       rake
 
+PATH
+  remote: engines
+  specs:
+    attendance (0.1.0)
+      rails (~> 5.2.2)
+    candidate (0.1.0)
+      rails (~> 5.2.2)
+    entity (0.1.0)
+      rails (~> 5.2.2)
+    external (0.1.0)
+      rails (~> 5.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -230,12 +242,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attendance!
   bcrypt
   bootsnap (>= 1.1.0)
   byebug
+  candidate!
   capybara (>= 2.15)
   chromedriver-helper
   email_validator
+  entity!
+  external!
   file_validators
   haml
   has_scope
