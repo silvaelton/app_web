@@ -8,23 +8,23 @@ gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'uglifier', '~> 1.3.0'
+gem 'jquery-rails', '~> 4.3.3'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '~> 1.1.0', require: false
 
-gem 'haml'
-gem 'simple_form'
-gem 'bcrypt'
+gem 'haml', '~> 5.0.4'
+gem 'simple_form', '~> 4.1.0'
+gem 'bcrypt', '~> 3.1.12'
 
-gem 'has_scope'
-gem 'file_validators'
-gem 'validates_cpf_cnpj'
-gem 'validates_timeliness'
-gem 'email_validator'
-gem 'pagy'
+gem 'has_scope', '~> 0.7.2'
+gem 'file_validators', '~> 2.3.0'
+gem 'validates_cpf_cnpj', '~> 0.2.0'
+gem 'validates_timeliness', '~> 4.0.2'
+gem 'email_validator', '~> 1.6.0'
+gem 'pagy', '~> 1.3.2'
 
 gem 'support', github: 'codhab/support', branch: 'master'
 
@@ -33,14 +33,14 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '~> 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'selenium-webdriver', '~> 3.141.0'
+  gem 'chromedriver-helper', '~> 2.1.0'
 end
 
 path 'engines' do

@@ -15,7 +15,7 @@ module AppWeb
     config.i18n.default_locale = :'pt-BR'
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
-    config.assets.paths << Rails.root.join('vendor', 'templates')
+    config.assets.paths << Rails.root.join('vendor', 'libs')
     config.assets.paths << Rails.root.join('vendor', 'stylesheets')
     config.assets.paths << Rails.root.join('vendor', 'javascripts')
 
