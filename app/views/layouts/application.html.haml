@@ -10,7 +10,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/partials/top'
+    = render 'layouts/header'
     .container
       = yield
 
+
+    #modal.modal{tabindex: '-1', role: 'dialog'}
+    #alert.modal.fade{tabindex: '-1', role: 'dialog'}

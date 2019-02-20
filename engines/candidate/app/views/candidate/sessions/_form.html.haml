@@ -1,0 +1,5 @@
+= simple_form_for @session, remote: true do |f|
+  = f.input :cpf, label: false, placeholder: 'Informe seu CPF'
+  = f.input :password, label: false, placeholder: 'Informe sua senha'
+  = f.button :submit, class: 'btn btn-success btn-block', data: { disable_with: t(:disable_with)}
+  = link_to "Esqueci minha senha", "#", class: 'btn btn-dark btn-block', data: { disable_with: t(:disable_with)}

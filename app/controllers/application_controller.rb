@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   after_action :allow_cors
 
-  helper_method :title_bar
+  helper_method :header_title
 
   private
 
@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
     response.headers["X-Frame-Options"] = "ALLOWALL"
   end
 
-  def title_bar
-    "Requerimentos"
+  def header_title(title = nil)
+    title
   end
+
 end

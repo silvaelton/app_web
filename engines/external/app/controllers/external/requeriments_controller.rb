@@ -4,7 +4,26 @@ module External
   class RequerimentsController < ApplicationController
     
     def index
-      redirect_to action: :new
+    end
+
+    def new
+    end
+
+    def create
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+
+    private
+
+    def set_requeriment
     end
 
   end

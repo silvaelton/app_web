@@ -14,8 +14,6 @@ GIT
 PATH
   remote: engines
   specs:
-    attendance (0.1.0)
-      rails (~> 5.2.2)
     candidate (0.1.0)
       rails (~> 5.2.2)
     entity (0.1.0)
@@ -243,7 +241,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  attendance!
   bcrypt (~> 3.1.12)
   bootsnap (~> 1.1.0)
   byebug

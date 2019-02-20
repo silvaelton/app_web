@@ -44,7 +44,6 @@ group :test do
 end
 
 path 'engines' do
-  gem 'attendance'
   gem 'candidate'
   gem 'entity'
   gem 'external'
