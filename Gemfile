@@ -25,6 +25,7 @@ gem 'validates_cpf_cnpj', '~> 0.2.0'
 gem 'validates_timeliness', '~> 4.0.2'
 gem 'email_validator', '~> 1.6.0'
 gem 'pagy', '~> 1.3.2'
+gem 'font-awesome-rails'
 
 gem 'support', github: 'codhab/support', branch: 'master'
 

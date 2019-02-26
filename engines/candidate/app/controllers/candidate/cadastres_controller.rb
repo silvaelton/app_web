@@ -5,6 +5,8 @@ module Candidate
     
     def index
     end 
+
+    
     
   end
 end

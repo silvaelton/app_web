@@ -1,6 +1,26 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #f9f9f9;
+}
+
+body::-webkit-scrollbar {
+  width: 0.2em;
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: #f5b302;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 #header {
   height: 50px;
-  background-color: #ffc640;
   margin-bottom: 25px;
 }
 
@@ -17,11 +37,152 @@
 }
 
 
-#modal-danger .modal-header {
-  background-color: #a22e2e;
-  color: white;
+#header .back-button i {
+  font-size: 22px;
+  color: #f5b302;
+  font-weight: 900;
+  margin-top: 10px !important;
 }
 
-#modal-danger .modal-title {
+#header .home-button i {
+  font-weight: 900;
+  font-size: 22px;
+  margin-top: 10px !important;
+  color: #f5b302;
+}
+
+#header {
+  padding-top: 10px;
+  line-height: 0.8;
+}
+
+#header .title {
+  font-weight: 600;
+  font-size: 22px;
+  padding-top: 4%;
+  color: #444444;
+}
+
+#header .title small {
+  font-size: 14px;
+  color: #6f6f6f;
+  word-wrap: break-word;
+}
+
+.btn-block {
+  padding: .575rem .65rem !important;
+  font-size: 1.15rem;
+}
+
+.btn-primary {
+  color: #000;
+  background-color: #f5b302;
+  border-color: #f5b302;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #a3373a;
+  border-color: #a3373a;
+}
+
+.form-control {
+  height: calc(2.25rem + 20px);
+}
+
+.form-control::placeholder {
+  font-size: 18px;
+}
+
+#modal-error .error-icon {
+  text-align: center;
+}
+#modal-error .error-icon i {
+  font-size: 5em;
+  color: #9c3333;
+}
+
+#modal-error .content {
+  text-align: center;
+}
+
+#modal-error .content h4 {
+  font-size: 2em;
   font-weight: bold;
+}
+
+#modal-error .content h6 {
+  font-size: 1.1em;
+}
+
+#content .color-content {
+  background-color: #f5b302;
+  height: 150vh;
+}
+
+
+#content p {
+  line-height: 1.1;
+}
+#content .toptitle {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+#content .title {
+  font-size: 1.9em;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+#content .subtitle {
+  font-size: 0.9em;
+  margin-bottom: 7px;
+
+}
+
+.color-content-border {
+  background-image: url(/border-top.png);
+  height: 5px;
+  background-repeat: repeat-x;
+  background-size: 2.9%;
+}
+
+#content .color-content a {
+  color: #393e42;
+  
+}
+
+#content .color-content a:hover {
+  text-decoration: none;
+}
+
+#content .color-content .card-body {
+  padding-top: 0.90rem;
+  padding-bottom: 0;
+  padding-left: 0.15rem;
+  padding-right: 0.10rem;
+}
+
+#content .color-content {
+  text-align: center;
+}
+
+#content .color-content h6 {
+  font-size: 16px;
+  margin-top: 20px;
+}
+#content .color-content i {
+  font-size: 2.6em;
+  text-align: center;
+  margin-bottom: 15px;
+  
+}
+
+
+#content .color-content .card {
+  border-radius: 0.8rem;
+  box-shadow: 5px 7px #de9933;
 }

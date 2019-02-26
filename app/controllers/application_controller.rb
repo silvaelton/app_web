@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::Base
   after_action :allow_cors
-
-  helper_method :header_title
-
+  before_action :set_title
+  
   private
 
   def allow_cors
     response.headers["X-Frame-Options"] = "ALLOWALL"
   end
 
-  def header_title(title = nil)
-    title
+  def set_title
+    @header_title = "title_is_blank"
+    @header_subtitle = "subtitle_is_blank"
   end
-
+ 
 end
