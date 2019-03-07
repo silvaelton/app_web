@@ -1,12 +1,12 @@
 require_dependency 'candidate/application_controller'
 
 module Candidate
-  class CadastresController < ApplicationController
-    
+  class HomeController < ApplicationController
+    layout 'application-less'
     
     def index
-    end 
-
+    end
+    
     private 
 
     def set_title

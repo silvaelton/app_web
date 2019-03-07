@@ -1,8 +1,9 @@
 #header
   .row.mb-5
     .col-2
-      = link_to :back, class: 'back-button' do
-        %i.fa.fa-arrow-left
+      - if controller_name != "sessions"
+        = link_to :back, class: 'back-button' do
+          %i.fa.fa-arrow-left
     .col-8
       .title
         %p 

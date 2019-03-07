@@ -1,9 +1,10 @@
 Candidate::Engine.routes.draw do
-  root 'cadastres#index'
+  root 'home#index'
   
   resources :sessions
 
   namespace :attendance do 
+    get '/', to: 'dashboard#index'
     
     resources :tickets do
       resources :cadastres

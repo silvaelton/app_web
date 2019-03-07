@@ -12,7 +12,12 @@
   %body
     = render 'layouts/header'
     .mt-5
-    = yield
+    #main
+      = yield
 
     #modal.modal{tabindex: '-1', role: 'dialog'}
     #alert.modal.fade{tabindex: '-1', role: 'dialog'}
+    .spinner.text-center{style:'display: none;'}
+      = image_tag 'loading.gif'
+      %h4
+        %b Carregando

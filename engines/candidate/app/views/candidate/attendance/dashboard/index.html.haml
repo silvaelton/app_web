@@ -1,0 +1,48 @@
+
+.row.mt-2
+  .col-12
+    = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-success btn-block', data: { disable_with: t(:disable_with)}
+.divider
+.row
+  .col-12.text-center
+    %h5 Atendimento(s) em andamento    
+.row.mt-2
+  .col-12
+    %a{href: "#{candidate.attendance_path}"}
+      .card
+        .card-body
+          .row
+            .col-2
+              = image_tag 'hourglass.png', width: 40, style: 'margin-top: 15px'
+            .col-10
+              .subtitle Nº 7085
+              .title Habilitação
+              .subtitle Em análise com a CODHAB
+.divider
+.row
+  .col-12.text-center
+    %h5 Atendimentos finalizados              
+.row.mt-2
+  .col-12
+    %a{href: "#{candidate.attendance_path}"}
+      .card
+        .card-body
+          .row
+            .col-2
+              = image_tag 'checked.png', width: 40, style: 'margin-top: 15px'
+            .col-10
+              .subtitle Nº 123456            
+              .title Dados de contato
+              .subtitle Finalizado                
+.row.mt-2
+  .col-12
+    %a{href: "#{candidate.attendance_path}"}
+      .card
+        .card-body
+          .row
+            .col-2
+              = image_tag 'checked.png', width: 40, style: 'margin-top: 15px'
+            .col-10
+              .subtitle Nº 123456            
+              .title Dados de contato
+              .subtitle Finalizado                              
