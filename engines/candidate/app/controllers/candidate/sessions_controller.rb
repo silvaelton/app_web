@@ -24,7 +24,8 @@ module Candidate
     end
 
     def set_title 
-      @header_title = 'meu cadastro'
+      @header_title = 'meu_cadastro'
+      @header_subtitle = 'realizar_acesso'
     end
   end
 end

@@ -1,7 +1,7 @@
 require_dependency 'external/application_controller'
 
 module External
-  class RequerimentsController < ApplicationController
+  class SchedulesController < ApplicationController
     
     def index
     end
@@ -27,8 +27,8 @@ module External
     end
 
     def set_title
-      @header_title = "Requerimentos"
-      @header_subtitle = "Listagem de requerimentos"
+      @header_title = "Agendamentos"
+      @header_subtitle = "Listagem de agendamentos"
     end
 
   end

@@ -18,7 +18,7 @@ module Candidate
 
     def authenticate!
       if current_candidate.nil? && controller_name != "sessions"
-        #redirect_to candidate.new_session_path
+        redirect_to candidate.new_session_path
       end
     end
 

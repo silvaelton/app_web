@@ -1,4 +1,5 @@
-#content
+
+#header-content
   .container
     .row
       .col-12
@@ -15,6 +16,8 @@
           %br/
           %p.uppercase
             %b.danger Pendência - XYZ
+
+#content            
   .color-content-border      
   .color-content
     .container
@@ -35,7 +38,7 @@
                     %h6 Atualizações              
           .row.pt-4
             .col-6
-              %a{href: "#{entity.notifications_path}"}
+              %a{href: "#{candidate.notifications_path}"}
                 .card
                   .card-body
                     = image_tag 'ring.png', width: 50
@@ -67,7 +70,7 @@
                     = image_tag 'question.png', width: 50
                     %h6 Dúvidas
             .col-6 
-              %a{href: "#"}
+              %a{href: "#{candidate.session_path(current_candidate)}"}
                 .card
                   .card-body
                     = image_tag 'exit.png', width: 50

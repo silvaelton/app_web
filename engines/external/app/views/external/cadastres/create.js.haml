@@ -1,0 +1,5 @@
+- if @cadastre.errors.any?
+  $("#alert").html("#{escape_javascript(render 'error')}");
+  $("#alert").modal("show");
+
+update_js();

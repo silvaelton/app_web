@@ -1,11 +1,8 @@
 External::Engine.routes.draw do
 
-  # => Requerimentos
   resources :requeriments
-
-  # => Pesquisa CPF
   resources :cadastres
-
-  # => Agendamentos
-  resources :schudules
+  resources :schedules
+  resources :assistences
+  resources :informations
 end
