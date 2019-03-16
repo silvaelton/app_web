@@ -26,6 +26,7 @@ gem 'validates_timeliness', '~> 4.0.2'
 gem 'email_validator', '~> 1.6.0'
 gem 'pagy', '~> 1.3.2'
 gem 'font-awesome-rails'
+gem 'dotenv-rails'
 
 gem 'support', github: 'codhab/support', branch: 'master'
 
@@ -42,6 +43,11 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver', '~> 3.141.0'
   gem 'chromedriver-helper', '~> 2.1.0'
+end
+
+group :production do
+  gem 'unicorn'
+  gem 'unicorn-worker-killer'
 end
 
 path 'engines' do
