@@ -1,4 +1,4 @@
-ready = function () {
+var ready = function () {
   update_js();
 }
 
