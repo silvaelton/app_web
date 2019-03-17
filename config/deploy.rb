@@ -22,7 +22,7 @@ set  :repository, 'https://github.com/codhab/app_web.git'
 set  :branch, ENV['DEPLOY_BRANCH']
 
 set :shared_dirs, fetch(:shared_dirs, []).push('log', 'tmp/pids', 'tmp/sockets', 'public')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/unicorn.rb', '.env')
+set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/unicorn.rb', '.env', 'config/secrets.yml')
 
 task :setup do
   command %[touch "#{fetch(:shared_path)}/config/database.yml"]
