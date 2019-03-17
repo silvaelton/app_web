@@ -47,8 +47,14 @@ task :deploy do
   end
 end
 
-task :log do
-  task :rails do
-    command %[tail -n 1000 "#{fetch(:shared_path)}/log/production.log"]
-  end
+task :log_rails do
+  command %[tail -n 1000 "#{fetch(:shared_path)}/log/production.log"]
+end
+  
+task :log_unicorn_stdout do 
+  command %[tail -n 1000 "#{fetch(:shared_path)}/log/unicorn.stdout.log"]
+end
+
+task :log_unicorn_stderr do
+  command %[tail -n 1000 "#{fetch(:shared_path)}/log/unicorn.stderr.log"]
 end
