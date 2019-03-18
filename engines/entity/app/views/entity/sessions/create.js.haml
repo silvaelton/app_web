@@ -1,8 +1,8 @@
 - if @session.errors.any?
-  $("#alert").html("#{escape_javascript(render 'error')}");
-  $("#alert").modal("show");
+  $("#modal").html("#{escape_javascript(render 'error')}");
+  $("#modal").modal("show");
 - else
-  $("#alert").html("#{render 'success'}");
-  $("#alert").modal("show");
+  $("#modal").html("#{render 'success'}");
+  $("#modal").modal("show");
 
 update_js();  

@@ -1,0 +1,9 @@
+- if @requeriment.errors.any?
+  $("#modal").html("#{escape_javascript(render 'error')}");
+  $("#modal").modal("show");
+- else
+  $("#modal").html("#{escape_javascript(render 'success')}");
+  $("#modal").modal("show");
+  setTimeout(function() { window.location.href = "#{external.requeriments_path}"; }, 3000)
+
+update_js();

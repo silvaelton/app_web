@@ -1,30 +1,49 @@
-%form
-  .row
-    .col-md-6
-      .form-group
-        %input#exampleFormControlInput1.form-control{:placeholder => "name@example.com", :type => "email"}/
-    .col-md-6
-      .form-group
-        %input.form-control{:disabled => "disabled", :placeholder => "Regular", :type => "text"}/
-  .row
-    .col-md-6
-      .form-group
-        .input-group.mb-4
-          .input-group-prepend
-            %span.input-group-text
-              %i.ni.ni-zoom-split-in
-          %input.form-control{:placeholder => "Search", :type => "text"}/
-    .col-md-6
-      .form-group
-        .input-group.mb-4
-          %input.form-control{:placeholder => "Birthday", :type => "text"}/
-          .input-group-append
-            %span.input-group-text
-              %i.ni.ni-zoom-split-in
-  .row
-    .col-md-6
-      .form-group.has-success
-        %input.form-control.is-valid{:placeholder => "Success", :type => "text"}/
-    .col-md-6
-      .form-group.has-danger
-        %input.form-control.is-invalid{:placeholder => "Error Input", :type => "email"}/
+
+.row
+  .col-12
+    = simple_form_for @requeriment do |f|
+      #category{style: 'display: block'}
+        .text-center
+          .title 1 de 4 passos
+          .subtitle Selecione o tipo de requerimento
+        .divider
+        = f.input :category_id, label: false, as: :select
+        = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next', data: { current: '#category', next: '#data'}
+  
+      #data{style: 'display: none'}
+        .text-center
+          .title 2 de 4 passos
+          .subtitle Informe seus dados pessoais      
+        .divider
+        = f.input :name
+        = f.input :cpf, input_html: { disabled: true}
+        = f.input :telephone
+        = f.input :celphone
+        = f.input :city_id
+        = f.input :address
+        = f.input :document_number
+        = link_to "Prosseguir", "javascript:void(0)", class: 'btn btn-primary btn-block next', data: { current: '#data', next: '#data-content'}
+        = link_to "Retornar", "javascript:void(0)", class: 'btn btn-dark btn-block prev', data: { current: '#data', prev: '#category'}
+      #data-content{style: 'display: none'}
+        .text-center
+          .title 3 de 4 passos
+          .subtitle Informe o conteúdo do seu requerimento    
+        .divider
+        = f.input :content, label: false, as: :text, input_html: { rows: 6}
+        = f.submit "Prosseguir", class: 'btn btn-primary btn-block next'
+        = link_to "Retornar", "javascript:void(0)", class: 'btn btn-dark btn-block prev', data: { current: '#data-content', prev: '#data'}
+:javascript
+  $(document).ready(function() {
+    $(".next").unbind().click(function() {
+      $($(this).data("current")).hide();
+      $($(this).data("next")).show();
+      $($(this).data("next") + "-step").addClass('badge-success');
+      window.scrollTo(0, 0);
+    })
+    $(".prev").unbind().click(function() {
+      $($(this).data("current")).hide();
+      $($(this).data("prev")).show();
+      $($(this).data("current") + "-step").removeClass('badge-success')
+      window.scrollTo(0, 0);
+    })    
+  })

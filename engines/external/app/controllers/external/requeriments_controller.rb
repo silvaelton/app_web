@@ -2,33 +2,56 @@ require_dependency 'external/application_controller'
 
 module External
   class RequerimentsController < ApplicationController
-    
+    before_action :set_requeriments
+
     def index
+      if session[:external_requeriment_cpf].nil?
+        redirect_to external.new_pre_requeriment_path
+      end 
+
+      @header_title = "Meus requerimentos"
+      @header_backlink = external.new_pre_requeriment_path
     end
 
     def new
-    end
+      @requeriment = @requeriments.new
 
+      @header_title = "Novo requerimento"
+      @header_backlink = external.requeriments_path 
+    end
+    
     def create
+      @requeriment = @requeriments.new(set_params)
+      
+      if @requeriment.save
+        redirect_to external.new_requeriment_requeriment_document_path(@requeriment)
+      else
+        render action: :new
+      end
     end
 
-    def edit
+    def done 
+      @requeriment = @requeriments.find(params[:requeriment_id])
+      
+      @header_title = "Requerimento"
+      @header_backlink = external.requeriments_path
     end
 
-    def update
-    end
+    def show
+      @requeriment = @requeriments.find(params[:id])
 
-    def destroy
+      @header_title = "Requerimento"
+      @header_backlink = external.requeriments_path
     end
 
     private
 
-    def set_requeriment
+    def set_params 
+      params.require(:requeriment).permit(:name, :cpf)
     end
 
-    def set_title
-      @header_title = "Requerimentos"
-      @header_subtitle = "Listagem de requerimentos"
+    def set_requeriments
+      @requeriments = External::Requeriment.where(cpf: session[:external_requeriment_cpf]) 
     end
 
   end

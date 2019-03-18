@@ -1,0 +1,21 @@
+.container
+  .card
+    .card-body
+      .row
+        .col-12
+          .text-center
+            .title 4 de 4 passos
+            .subtitle Realize anexo de fotos (Opcional)    
+          .divider
+    
+      .row
+        .col-12
+          .content-form
+            = render 'form'
+          .content-index
+            = render 'index'
+      .divider
+      .row
+        .col-12
+          = link_to "Finalizar", external.requeriment_done_path(@requeriment), class: 'btn btn-primary btn-block'
+

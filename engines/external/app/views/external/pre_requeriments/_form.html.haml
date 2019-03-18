@@ -1,0 +1,12 @@
+.row
+  .col-12
+    %h4 
+      %b Primeiro passo
+    %p
+      Informe seu CPF para que possamos carregar suas opções e requerimentos já realizados.
+      
+.row
+  .col-12
+    = simple_form_for @requeriment, remote: true do |f|
+      = f.input :cpf, label: false, input_html: { type: "tel", class: 'cpf text-center'}, placeholder: "Digite seu CPF"
+      = f.submit "Verificar", class: 'btn btn-primary btn-block', data: { disable_with: t(:disable_with)}

@@ -1,16 +1,14 @@
 #header
-  .row.mb-5
+  .row
     .col-2
-      - if controller_name != "sessions"
-        = link_to :back, class: 'back-button' do
-          %i.fa.fa-arrow-left
-    .col-8
+      - if !(@header_home == true)
+        - if !@header_backlink.nil?
+          = link_to @header_backlink, class: 'back-button' do
+            %i.fa.fa-arrow-left
+      - else
+        %a{href: "javascript:void(0)", class: 'back-iframe home-button'}
+          %i.fa.fa-home
+    .col-10
       .title
-        %p 
-          #{@header_title.to_s.humanize}
-          %br/
-          %small #{@header_subtitle.to_s.humanize}
-    .col-2
-      %a{href: "javascript:void(0)", class: 'back-iframe home-button'}
-        %i.fa.fa-home
-
+        = @header_title.to_s.humanize
+    

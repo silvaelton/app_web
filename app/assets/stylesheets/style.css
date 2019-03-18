@@ -1,6 +1,10 @@
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: #f6d504;
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(#f7f7f7, #ffffff);
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 30%;
 }
 
 body::-webkit-scrollbar {
@@ -15,45 +19,55 @@ h5 {
   font-size: 16px;
 }
 
-.card {
-  box-shadow: 5px 7px #c3aa11;
+a {
+  color: #e7ae05;
 }
+
 .uppercase {
   text-transform: uppercase;
 }
 
 #header {
-  height: 70px;
-  padding-bottom: 25px;
-  background-color: #f9f9f9;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0px 1px 8px #cacaca;
+  padding-top: 10px;
+  line-height: 0.8;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
 }
 
 
 #header .row {
   margin-right: 0;
   margin-left: 0;
+  margin-top: 10px !important;
 }
 
 #header .title {
-  text-align: center;
-  font-size: 25px;
-  font-weight: bold;
-  vertical-align: middle;
+  font-size: 20px;
+  color: #4a4a4a;
 }
 
+#header .col-2 {
+  padding-right: 0;
+}
 
+#header .col-10 {
+  padding-left: 0;
+  padding-top: 4px;
+}
 #header .back-button i {
   font-size: 22px;
-  color: #f6d504;
-  font-weight: 900;
-  margin-top: 10px !important;
+  color: #fecc36;
 }
 
+
 #header .home-button i {
-  font-weight: 900;
-  font-size: 22px;
-  margin-top: 10px !important;
-  color: #f6d504;
+  font-size: 24px;
+  color: #fecc36;
 }
 
 #header {
@@ -61,42 +75,11 @@ h5 {
   line-height: 0.8;
 }
 
-#header .title {
-  font-weight: 600;
-  font-size: 22px;
-  padding-top: 4%;
-  color: #444444;
-}
 
 #header .title small {
   font-size: 14px;
   color: #6f6f6f;
   word-wrap: break-word;
-}
-
-.btn-block {
-  padding: .575rem .65rem !important;
-  font-size: 1.15rem;
-}
-
-.btn-primary {
-  color: #000;
-  background-color: #f6d504;
-  border-color: #f6d504;
-}
-
-.btn-danger {
-  color: #fff;
-  background-color: #a3373a;
-  border-color: #a3373a;
-}
-
-.form-control {
-  height: calc(2.25rem + 20px);
-}
-
-.form-control::placeholder {
-  font-size: 18px;
 }
 
 #modal-error .error-icon {
@@ -207,6 +190,10 @@ h5 {
   font-weight: bold;
 }
 
+.title-sm {
+  font-weight: 0;
+  color: #656565;
+}
 
 
 #header-content {
@@ -216,4 +203,80 @@ h5 {
 .title-icon {
   font-size: 15px;
   padding-top: 10px;
+}
+
+
+.card {
+  box-shadow: 0px 0px 8px #d2d2d2;
+}
+
+.card .title {
+  font-size: 24px;
+  color: #555555;
+}
+
+.card .subtitle {
+  font-size: 16px;
+}
+.btn-block {
+  padding: .575rem .65rem !important;
+  font-size: 1.15rem;
+}
+
+
+/* BOTOES */
+
+.btn-primary {
+  color: #616161;
+  background-color: #fecc36;
+  border-color: #ffc923;
+  box-shadow: 0px 4px 4px #d2d2d2;
+  font-weight: bold;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #a3373a;
+  border-color: #a3373a;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #474747;
+  border-color: #ababab;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px #d2d2d2;
+}
+
+
+/* FORMULARIOS */
+
+.form-control {
+  height: calc(2.25rem + 20px);
+  font-size: 20px;
+}
+
+.form-control::placeholder {
+  font-size: 18px;
+}
+
+
+/* Listas */ 
+
+#card-list {
+  margin-bottom: 10px;
+}
+
+#card-list p {
+  margin-bottom: 1px;
+}
+
+
+#dinamic-form {
+  height: 180vh;
+}
+
+
+.remove-image {
+  border-radius: 0;
 }

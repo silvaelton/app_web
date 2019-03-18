@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-md-12
+
+      = link_to "Novo requerimento", external.new_requeriment_path, class: 'btn btn-primary btn-block'
+  .divider
+  .row
+    .col-md-12
+      - if @requeriments.present?
+        - @requeriments.order(id: :desc).each do |requeriment|
+          %a{href: "#{external.requeriment_path(requeriment)}"}
+            .card#card-list
+              .card-body
+                .row
+                  .col-12
+                    .title 
+                      %b N°
+                      #{requeriment.id} 
+                    %p.title-sm
+                      %b Aberto em: #{requeriment.created_at.format_date}
+                    %p.badge{class: requeriment.closed ?  'badge-success' : 'badge-dark'}
+                      = requeriment.closed ? "Respondido em #{requeriment.closed_at.format_date}" : "Em análise" 
+            
+        
+      - else
+        .row
+          .col-md-12
+            %p.text-center
+              Você não possuí nenhum requerimento até o momento.

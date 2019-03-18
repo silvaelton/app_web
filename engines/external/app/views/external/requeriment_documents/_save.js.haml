@@ -1,0 +1,7 @@
+- if @requeriment_document.errors.any?
+  $(".content-form").html("#{escape_javascript(render 'form')}");
+- else
+  $(".content-index").html("#{escape_javascript(render 'index')}");
+  $("#modal").modal('hide');
+
+update_js();

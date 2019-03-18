@@ -1,10 +1,10 @@
-!!!
+!!! 1.1
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
     %title Codhab::WebApp
-    %link{:href => "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,700,900", :rel => "stylesheet"}/
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -15,9 +15,5 @@
       #main
         = yield
 
-    #modal.modal{tabindex: '-1', role: 'dialog'}
-    #alert.modal.fade{tabindex: '-1', role: 'dialog'}
-    .spinner.text-center{style:'display: none;'}
-      = image_tag 'loading.gif'
-      %h4 
-        %b Carregando
+    #modal.modal.fade{tabindex: '-1', role: 'dialog'}
+   

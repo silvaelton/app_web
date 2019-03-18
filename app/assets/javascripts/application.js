@@ -3,6 +3,8 @@
 //= require turbolinks
 //= require bootstrap/popper.min
 //= require bootstrap/bootstrap.min
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require jquery/mask.min
 //= require loading
 //= require custom

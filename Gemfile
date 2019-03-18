@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.0'
 
 gem 'rails', '~> 5.2.2'
+gem 'support', github: 'codhab/support', branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'puma', '~> 3.11'
@@ -27,8 +28,9 @@ gem 'email_validator', '~> 1.6.0'
 gem 'pagy', '~> 1.3.2'
 gem 'font-awesome-rails'
 gem 'dotenv-rails'
-
-gem 'support', github: 'codhab/support', branch: 'master'
+gem 'jquery-fileupload-rails'
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
