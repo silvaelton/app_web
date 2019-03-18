@@ -3,10 +3,9 @@ module External
     include CarrierWave::RMagick
 
     storage :file
-  
+
     version :thumb do
-      process :resize_to_fit => [100, 100]
-      process :quality => 100 
+      process :resize_to_fit => [400, 400]
     end
     
     def store_dir

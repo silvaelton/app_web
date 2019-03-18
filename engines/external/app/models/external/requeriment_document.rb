@@ -5,5 +5,7 @@ module External
     mount_uploader :attachment, External::RequerimentUploader
 
     validates :attachment, presence: true
+
+    
   end
 end
