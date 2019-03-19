@@ -4,7 +4,7 @@
     %span{style: 'display: none'}
       = f.file_field :attachment, required: true, name: 'requeriment_document[attachment]'
       = f.input :attachment, as: :file
-      %input{type="file", accept="image/*;capture=camera"}
+      %input{type:"file", accept:"image/*;capture=camera"}
   .progress-content
 %hr/
 %script#template-upload{:type => "text/x-tmpl"}
