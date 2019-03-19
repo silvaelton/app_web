@@ -1,9 +1,9 @@
 = simple_form_for [@requeriment, @requeriment_document], html: {id: 'form-upload'} do |f|
+  = f.file_field :attachment, required: true, name: 'requeriment_document[attachment]'
+  = f.input :attachment, as: :file
   %label.btn.btn-info.btn-block
     %b Anexar foto
     %span{style: 'display: none'}
-      = f.file_field :attachment, required: true, name: 'requeriment_document[attachment]'
-      = f.input :attachment, as: :file
       %input{type:"file", accept:"image/*;capture=camera"}
   .progress-content
 %hr/
