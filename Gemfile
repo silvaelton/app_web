@@ -30,7 +30,7 @@ gem 'font-awesome-rails'
 gem 'dotenv-rails'
 gem 'jquery-fileupload-rails'
 gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git'
-gem 'rmagick'
+gem 'rmagick', '~> 2.16.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
