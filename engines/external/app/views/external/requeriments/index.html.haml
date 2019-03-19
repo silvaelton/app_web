@@ -19,7 +19,7 @@
                     %p.title-sm
                       %b Aberto em: #{requeriment.created_at.format_date}
                     %p.badge{class: requeriment.closed ?  'badge-success' : 'badge-dark'}
-                      = requeriment.closed ? "Respondido em #{requeriment.closed_at.format_date}" : "Em análise" 
+                      /= requeriment.closed ? "Respondido em #{requeriment.closed_at.format_date}" : "Em análise" 
             
         
       - else
