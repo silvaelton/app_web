@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'external/requeriments#index'
 
   mount External::Engine  => '/external',  as: :external
   mount Entity::Engine    => '/entity',    as: :entity

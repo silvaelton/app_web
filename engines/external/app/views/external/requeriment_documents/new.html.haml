@@ -4,7 +4,8 @@
       .row
         .col-12
           .text-center
-            .title 4 de 4 passos
+            .title 
+              %b 4 de 4 passos
             .subtitle Realize anexo de fotos (Opcional)    
           .divider
     
@@ -14,8 +15,7 @@
             = render 'form'
           .content-index
             = render 'index'
-      .divider
       .row
         .col-12
-          = link_to "Finalizar", external.requeriment_done_path(@requeriment), class: 'btn btn-primary btn-block'
+          = link_to "Finalizar", external.requeriment_done_path(@requeriment), class: 'btn btn-success btn-block'
 

@@ -4,7 +4,8 @@
     = simple_form_for @requeriment do |f|
       #category{style: 'display: block'}
         .text-center
-          .title 1 de 4 passos
+          .title 
+            %b 1 de 4 passos
           .subtitle Selecione o tipo de requerimento
         .divider
         = f.input :category_id, label: false, as: :select
@@ -12,7 +13,8 @@
   
       #data{style: 'display: none'}
         .text-center
-          .title 2 de 4 passos
+          .title 
+            %b 2 de 4 passos
           .subtitle Informe seus dados pessoais      
         .divider
         = f.input :name
@@ -26,7 +28,8 @@
         = link_to "Retornar", "javascript:void(0)", class: 'btn btn-dark btn-block prev', data: { current: '#data', prev: '#category'}
       #data-content{style: 'display: none'}
         .text-center
-          .title 3 de 4 passos
+          .title 
+            %b 3 de 4 passos
           .subtitle Informe o conteúdo do seu requerimento    
         .divider
         = f.input :content, label: false, as: :text, input_html: { rows: 6}

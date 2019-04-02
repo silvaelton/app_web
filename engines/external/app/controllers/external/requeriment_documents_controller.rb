@@ -15,6 +15,10 @@ module External
       @requeriment_document = @requeriment.requeriment_documents.new(set_params)
       @requeriment_document.save
     end
+    
+    def show
+      @requeriment_document = @requeriment.requeriment_documents.find(params[:id])
+    end
 
     def delete
       @requeriment_document = @requeriment.requeriment_documents.find(params[:requeriment_document_id])

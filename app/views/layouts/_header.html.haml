@@ -1,14 +1,14 @@
 #header
   .row
     .col-2
-      - if !(@header_home == true)
-        - if !@header_backlink.nil?
+      - if !@header_backlink.nil?
+        - if @header_backlink == 'app_home'
+          %a{href: "#", class: 'back-iframe home-button'}
+            %i.fa.fa-arrow-left
+        - else
           = link_to @header_backlink, class: 'back-button' do
             %i.fa.fa-arrow-left
-      - else
-        %a{href: "javascript:void(0)", class: 'back-iframe home-button'}
-          %i.fa.fa-home
     .col-10
       .title
-        = @header_title.to_s.humanize
+        %b= @header_title.to_s.humanize
     

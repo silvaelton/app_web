@@ -28,8 +28,8 @@ module External
     end
 
     def set_title
-      @header_title = "Requerimentos"
-      @header_home  = true
+      @header_title    = "Requerimentos"
+      @header_backlink = 'app_home'
     end
 
   end

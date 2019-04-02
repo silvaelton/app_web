@@ -18,7 +18,6 @@ function update_js() {
 function close_modal() {
   $(".modal-close").unbind().click(function () {
     $("#modal").modal('hide');
-    $("#modal").modal('hide');
   })
 }
 
