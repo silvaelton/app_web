@@ -13,5 +13,5 @@
       .row.mt-4
         .col-12
           .content-error
-            = link_to "Sim, desejo remover", external.requeriment_requeriment_document_path(@requeriment, @requeriment_document), method: :delete, remote: true, class: "btn btn-danger btn-block", data: { disable_with: t(:disable_with)}
+            = link_to "Sim, desejo remover", external.requeriment_requeriment_attachment_path(@requeriment, @requeriment_document), method: :delete, remote: true, class: "btn btn-danger btn-block", data: { disable_with: t(:disable_with)}
             = link_to "Não, desejo cancelar", "javascript:void(0)", class: "btn btn-dark btn-block modal-close", data: { disable_with: t(:disable_with)}

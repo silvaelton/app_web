@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      'external/requeriment': 'Requerimento'
+    attributes:
+      'external/requeriment':
+        name: "Nome completo"
+        cpf: "CPF"
+        telephone: "Telefone"
+        celphone: "Celular"
+        address: "Endereço"
+        city_id: "Cidade"
+        document_number: "Processo (opcional)"
+        content: "Conteúdo"
+    

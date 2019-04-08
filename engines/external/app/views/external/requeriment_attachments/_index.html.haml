@@ -1,0 +1,15 @@
+#image-card
+  - @requeriment.requeriment_attachments.order(id: :desc).each_with_index do |attachment, index|
+    .card
+      .card-body.card-header
+        .text-center
+          %b Imagem #{@requeriment.requeriment_attachments.count - index} 
+      .card-body.image-card
+        .row
+          .col-12.text-center
+            .image-content
+              = link_to image_tag(attachment.attachment.thumb.url, class: 'img-fluid img-thumbnail'), external.requeriment_requeriment_attachment_path(@requeriment, attachment), remote: true if attachment.attachment?
+            %small (Toque para visualizar)
+      .remove-image-content
+        = link_to external.requeriment_requeriment_attachment_delete_path(@requeriment, attachment), remote: true, class: 'remove-image btn btn-danger' do
+          %i.fa.fa-times

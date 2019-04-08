@@ -2,28 +2,32 @@
 .row
   .col-12
     = simple_form_for @requeriment do |f|
+      - if @requeriment.errors.any?
+        .alert.alert-danger.text-center
+          %b Ops... Não foi possível iniciar seu requerimento, revise seus dados.
       #category{style: 'display: block'}
         .text-center
           .title 
             %b 1 de 4 passos
           .subtitle Selecione o tipo de requerimento
         .divider
-        = f.input :category_id, label: false, as: :select, collection: @requeriment_service.allowed_categories
-        = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next', data: { current: '#category', next: '#data'}
-  
+        = f.input :category_id, label: false, as: :select, collection: @requeriment_service.allowed_categories.map { |k,v| [k.name.humanize, k.id] } , include_blank: 'Selecione...', input_html: { id: 'category_id'}
+        #btn-category{style: "display: #{f.object.category_id.present? ? 'block' : 'none'}"}
+          = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next ', data: { current: '#category', next: '#data'}
+        
       #data{style: 'display: none'}
         .text-center
           .title 
             %b 2 de 4 passos
           .subtitle Informe seus dados pessoais      
         .divider
-        = f.input :name
+        = f.input :name, placeholder: "Informe seu nome"
         = f.input :cpf, input_html: { disabled: true}
-        = f.input :telephone
-        = f.input :celphone
-        = f.input :city_id
-        = f.input :address
-        = f.input :document_number
+        = f.input :telephone, as: :integer, placeholder: "Informe um telefone"
+        = f.input :celphone, as: :integer, placeholder: "Informe outro telefone"
+        = f.input :city_id, as: :select, collection: Support::Common::City.federal_district, include_blank: t(:include_blank)
+        = f.input :address, placeholder: "Informe um endereço"
+        = f.input :document_number, placeholder: "Informe um processo"
         = link_to "Prosseguir", "javascript:void(0)", class: 'btn btn-primary btn-block next', data: { current: '#data', next: '#data-content'}
         = link_to "Retornar", "javascript:void(0)", class: 'btn btn-dark btn-block prev', data: { current: '#data', prev: '#category'}
       #data-content{style: 'display: none'}
@@ -49,4 +53,8 @@
       $($(this).data("current") + "-step").removeClass('badge-success')
       window.scrollTo(0, 0);
     })    
+
+    $("#category_id").unbind().change(function() {
+      $("#btn-category").toggle();
+    })
   })

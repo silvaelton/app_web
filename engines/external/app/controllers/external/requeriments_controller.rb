@@ -25,9 +25,10 @@ module External
     
     def create
       @requeriment = @requeriments.new(set_params)
-      
+      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+
       if @requeriment.save
-        redirect_to external.new_requeriment_requeriment_document_path(@requeriment)
+        redirect_to external.new_requeriment_requeriment_attachment_path(@requeriment)
       else
         render action: :new
       end
@@ -50,7 +51,8 @@ module External
     private
 
     def set_params 
-      params.require(:requeriment).permit(:name, :cpf)
+      params.require(:requeriment).permit(:name, :category_id, :telephone, :celphone, :city_id, 
+                                          :address, :document_number, :content)
     end
 
     def set_requeriments

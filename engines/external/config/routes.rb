@@ -5,7 +5,7 @@ External::Engine.routes.draw do
   resources :requeriments do
     get 'done'
     
-    resources :requeriment_documents do 
+    resources :requeriment_attachments do 
       get 'delete'
     end
   end
