@@ -48,8 +48,9 @@ a {
 }
 
 #header .title {
-  font-size: 24px;
+  font-size: 18px;
   color: #4a4a4a;
+  margin-top: 1px;
 }
 
 #header .col-2 {
@@ -61,13 +62,14 @@ a {
   padding-top: 4px;
 }
 #header .back-button i {
-  font-size: 22px;
+  font-size: 18px;
   color: #fecc36;
 }
 
 
 #header .home-button i {
-  font-size: 24px;
+  font-size: 20px;
+  
   color: #fecc36;
 }
 
@@ -203,6 +205,15 @@ a {
   font-size: 1.15rem;
 }
 
+
+.card-info {
+  background-color: #ffd53f;
+}
+
+.card-black {
+  background-color: #3b3b3b;
+  color: white;
+}
 
 /* BOTOES */
 

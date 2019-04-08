@@ -1,9 +1,13 @@
 .container
   .row
     .col-md-12
-
-      = link_to "Novo requerimento", external.new_requeriment_path, class: 'btn btn-primary btn-block'
-  .divider
+      - if @requeriment_service.not_allowed?
+        .card
+          .card-body.text-center.card-black 
+            Não é possível iniciar um novo requerimento pois existe requerimento aberto.
+      - else 
+        = link_to "Novo requerimento", external.new_requeriment_path, class: 'btn btn-primary btn-block'
+  %hr.divider
   .row
     .col-md-12
       - if @requeriments.present?
@@ -23,5 +27,6 @@
       - else
         .row
           .col-md-12
-            %p.text-center
-              Você não possuí nenhum requerimento até o momento.
+            .card
+              .card-body.text-center
+                Você não possuí nenhum requerimento até o momento.

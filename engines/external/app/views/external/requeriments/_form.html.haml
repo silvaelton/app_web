@@ -8,7 +8,7 @@
             %b 1 de 4 passos
           .subtitle Selecione o tipo de requerimento
         .divider
-        = f.input :category_id, label: false, as: :select
+        = f.input :category_id, label: false, as: :select, collection: @requeriment_service.allowed_categories
         = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next', data: { current: '#category', next: '#data'}
   
       #data{style: 'display: none'}

@@ -9,13 +9,16 @@ module External
         redirect_to external.new_pre_requeriment_path
       end 
 
+      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+
       @header_title = "Meus requerimentos"
       @header_backlink = external.new_pre_requeriment_path
     end
 
     def new
       @requeriment = @requeriments.new
-
+      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+      
       @header_title = "Novo requerimento"
       @header_backlink = external.requeriments_path 
     end

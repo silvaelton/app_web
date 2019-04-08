@@ -1,5 +1,6 @@
 External::Engine.routes.draw do
 
+  resources :entities
   resources :pre_requeriments
   resources :requeriments do
     get 'done'
