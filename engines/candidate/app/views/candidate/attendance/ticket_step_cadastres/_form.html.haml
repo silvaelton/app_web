@@ -1,0 +1,29 @@
+= simple_form_for url_for do |f|
+
+  #step_one
+    = f.input :name, input_html: { disabled: true}
+    = f.input :cpf, input_html: { disabled: true}
+    = f.input :rg
+    = f.input :rg_org
+    = f.input :rg_uf_id, as: :select, collection: Support::Common::State.all.map { |k,v| [k.acronym, k.id]}, include_blank: t(:include_blank)
+    = f.input :born, as: :string, input_html: { class: 'date' }
+    = f.input :gender_id, as: :select, collection: Support::Common::Gender.status_active, include_blank: t(:include_blank)
+
+    = link_to "Prosseguir", "javascript:void(0)", class: 'btn btn-success btn-block'
+  .divider
+  #step_two
+    = f.input :civil_state_id, as: :select, collection: Support::Common::CivilState.status_active, include_blank: t(:include_blank)
+    = f.input :arrival_df, as: :string, input_html: { class: 'date'}
+    = f.input :special_condition, as: :select, include_blank: false, input_html: { id: "special_condition" }
+    #special_condition_type{style: "display: f.object.special_condition ? 'block' : 'none' "}
+      = f.input :special_condition_type_id, as: :select, collection: Support::Common::SpecialConditionType.status_active, include_blank: t(:include_blank)
+    = f.input :adapted_property, as: :select, include_blank: false
+
+    = link_to "Salvar", "javascript:void(0)", class: 'btn btn-success btn-block'
+  .divider
+
+
+:javascript
+  $("#special_condition").on("change", function() {
+    $("#special_condition_type").toggle();
+  });

@@ -1,0 +1,34 @@
+.container
+  .row.mt-3
+    .col-md-12
+      %h6.text-center 
+        %b Atendimento atual
+  .row.mt-2
+    .col-md-12
+      .card
+        .card-body
+          %h6 Atendimento #1
+          %small Atualização cadastral
+          %br/
+          %small Situação
+          %br/
+          %small 01/08/2018
+  .row.mt-3
+    .col-md-12
+      = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-primary btn-block'            
+  %hr/
+  .row.mb-3
+    .col-md-12
+      %h6.text-center 
+        %b Meus atendimentos (0)
+  - 10.times do
+    .row.mt-2
+      .col-md-12
+        .card
+          .card-body
+            %h6 Atendimento #1
+            %small Atualização cadastral
+            %br/
+            %small Situação
+            %br/
+            %small 01/08/2018
