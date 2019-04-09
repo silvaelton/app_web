@@ -11,9 +11,9 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'layouts/header'
-    .mt-1
-      #main
-        = yield
+    
+    #main.pt-4{style: "padding-bottom: 350px;"}
+      = yield
 
     #modal.modal.fade{tabindex: '-1', role: 'dialog'}
    

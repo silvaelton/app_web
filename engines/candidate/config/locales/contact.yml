@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      'candidate/attendance/contact': 'contatos'
+    attributes:
+      'candidate/attendance/contact':
+        telephone: "Telefone"
+        celphone: "Celular"
+        telephone_optional: "Telefone (opcional)"
+        email: "E-mail"
+        city_id: "Cidade"
+        cep: "CEP"
+        address: "Endereço"

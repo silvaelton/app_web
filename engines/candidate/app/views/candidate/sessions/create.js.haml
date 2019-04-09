@@ -2,7 +2,8 @@
   $("#modal").html("#{escape_javascript(render 'error')}");
   $("#modal").modal("show");
 - else
-  $("#modal").html("#{render 'success'}");
+  $("#modal").html("#{escape_javascript(render 'success')}");
   $("#modal").modal("show");
+  setTimeout(function() { window.location.href = "#{candidate.root_path}"; }, 3000)
 
 update_js();

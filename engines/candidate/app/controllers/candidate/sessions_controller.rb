@@ -14,7 +14,9 @@ module Candidate
 
     def create
       @session =  Candidate::Session.new(set_params)
-      @session.valid?
+      if @session.valid?
+        session[:candidate_id] = @session.id
+      end
     end
 
     private

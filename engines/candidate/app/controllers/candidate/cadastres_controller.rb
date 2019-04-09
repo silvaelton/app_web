@@ -7,6 +7,7 @@ module Candidate
     end
     
     def show
+      @header_backlink = candidate.root_path
     end
 
     private 

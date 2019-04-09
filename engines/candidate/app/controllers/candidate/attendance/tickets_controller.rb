@@ -8,6 +8,10 @@ module Candidate
       end 
 
       def new
+        @ticket_service = Support::Attendance::TicketService.new(cadastre_id: current_candidate.id)
+        @ticket_service.create_ticket
+
+        redirect_to action: :index
       end
       
       private

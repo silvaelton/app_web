@@ -6,7 +6,7 @@ module Candidate
 
     layout 'application'
 
-    #before_action :authenticate!
+    before_action :authenticate!
 
     helper_method :authenticate!, :current_candidate
 

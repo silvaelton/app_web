@@ -1,77 +1,122 @@
 
-#header-content
-  .container
-    .row
-      .col-12
-        %p.title OSVALDO PEREIRA DA CUNHA
-        %p.title-md 610.211.991-68
-        %p.subtitle
-        %p.subtitle 
-          Situação cadastral: 
-          %br/
-          %p.uppercase
-            %b Habilitado - Documentação entregue
-        %p.subtitle 
-          Aviso: 
-          %br/
-          %p.uppercase
-            %b.danger Pendência - XYZ
+.container
+  .row
+    .col-12
+      .card
+        .card-body
+          %h4
+            %b Elton Charles Cruz da Silva
+          %p.title-md= @cadastre.cpf.format_cpf
+          %small
+            %p 
+              %b Situação cadastral
+              %br/
+              Habilitado - documentação entregue
+            %p 
+              %b Lista
+              %br/
+              RII 
+          
+  .divider
+  .row
+    .col-12
+      %a{href: "#{candidate.cadastre_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'clipboard.png', width: 50
+              .col-9
+                %h6
+                  %b Meu dados
+                Detalhamento dos meus dados cadastrais
 
-#content            
-  .color-content-border      
-  .color-content
-    .container
-      .row
-        .col-12
-          .row.pt-4
-            .col-6
-              %a{href: "#{candidate.cadastres_path}"}
-                .card
-                  .card-body
-                    = image_tag 'clipboard.png', width: 50
-                    %h6 Meu cadastro
-            .col-6
-              %a{href: "#{candidate.attendance_path}"}
-                .card
-                  .card-body
-                    = image_tag 'exchange.png', width: 50
-                    %h6 Atualizações              
-          .row.pt-4
-            .col-6
-              %a{href: "#{candidate.notifications_path}"}
-                .card
-                  .card-body
-                    = image_tag 'ring.png', width: 50
-                    %h6 Notificações
-            .col-6
-              %a{href: "#"} 
-                .card
-                  .card-body
-                    = image_tag 'document.png', width: 50
-                    %h6 Requerimentos  
-          .row.pt-4
-            .col-6  
-              %a{href: "#"}
-                .card
-                  .card-body
-                    = image_tag 'chat.png', width: 50
-                    %h6 Conversas 
-            .col-6 
-              %a{href: "#"}
-                .card
-                  .card-body
-                    = image_tag 'list.png', width: 50
-                    %h6 Indicações                               
-          .row.pt-4
-            .col-6 
-              %a{href: "#"}
-                .card
-                  .card-body
-                    = image_tag 'question.png', width: 50
-                    %h6 Dúvidas
-            .col-6 
-              %a{href: "#"}
-                .card
-                  .card-body
-                    = image_tag 'exit.png', width: 50
-                    %h6 Finalizar sessão
+                  
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.notifications_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'ring.png', width: 50
+              .col-9
+                %h6
+                  %b Notificações
+                Listagem de notificações envidas pela CODHAB
+                  
+
+  .row.mt-2
+    .col-12
+      .card
+        .card-body
+          .row
+            .col-3
+              = image_tag 'exchange.png', width: 50
+            .col-9
+              %h6
+                %b Meus atendimentos 
+              Meus atendimentos e atualizações do cadastro       
+
+
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.edit_attendance_contact_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                ok
+              .col-9
+                %h6
+                  %b Dados de contato  
+                Atualização de dados de contato
+
+  .row.mt-2
+    .col-12
+      .card
+        .card-body
+          .row
+            .col-3
+              = image_tag 'document.png', width: 50
+            .col-9
+              %h6
+                %b Meus requerimentos  
+              Requerimentos vínculados ao meu CPF                 
+
+
+  .row.mt-2
+    .col-12
+      .card
+        .card-body
+          .row
+            .col-3
+              = image_tag 'list.png', width: 50
+            .col-9
+              %h6
+                %b Indicações
+              Indicações realizadas para empreendimentos 
+
+  .row.mt-2
+    .col-12
+      .card
+        .card-body
+          .row
+            .col-3
+              = image_tag 'question.png', width: 50
+            .col-9
+              %h6
+                %b Dúvidas
+              FAQ, contato e 
+                  
+  .row.mt-2
+    .col-12
+      .card
+        .card-body
+          .row
+            .col-3
+              = image_tag 'exit.png', width: 50
+            .col-9
+              %h6
+                %b Finalizar acesso  
+              Finalizar e sair da área restrita                      

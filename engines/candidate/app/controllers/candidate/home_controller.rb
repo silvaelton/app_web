@@ -5,6 +5,8 @@ module Candidate
     layout 'application-less'
     
     def index
+      @cadastre = current_candidate
+      @header_backlink = 'app_home'
     end
     
     private 
