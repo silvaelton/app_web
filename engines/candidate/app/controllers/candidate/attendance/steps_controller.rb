@@ -2,7 +2,7 @@ require_dependency 'candidate/application_controller'
 
 module Candidate
   module Attendance
-    class TicketStepsController < ApplicationController
+    class StepsController < ApplicationController
       before_action :set_ticket
 
       def index
@@ -18,13 +18,13 @@ module Candidate
 
         case @ticket_category_step.view_form
         when 'cadastre'
-          redirect_to candidate.edit_attendance_ticket_ticket_step_ticket_step_cadastre_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
+          redirect_to candidate.edit_attendance_ticket_step_cadastre_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
         when 'dependent'
-          redirect_to candidate.attendance_ticket_ticket_step_ticket_step_dependents_path(@ticket, @step_id)
+          redirect_to candidate.attendance_ticket_step_dependents_path(@ticket, @step_id)
         when 'contact'
-          redirect_to candidate.edit_attendance_ticket_ticket_step_ticket_step_contact_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
+          redirect_to candidate.edit_attendance_ticket_step_contact_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
         when 'document'
-          redirect_to candidate.attendance_ticket_ticket_step_ticket_step_documents_path(@ticket, @step_id)
+          redirect_to candidate.attendance_ticket_step_documents_path(@ticket, @step_id)
         end
       end
 

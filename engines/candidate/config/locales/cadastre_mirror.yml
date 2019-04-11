@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models: 
+      "candidate/attendance/cadastre_mirror": "Cadastro"
+    attributes:
+      "candidate/attendance/cadastre_mirror":
+        name: "Nome"
+        cpf: "CPF"
+        rg: "RG"
+        rg_org: "RG Órgão Emissor"
+        rg_uf_id: "RG UF"
+        born: "Data de nascimento"
+        gender_id: "Sexo"
+        civil_state_id: "Estado civil"
+        arrival_df: "Chegada ao DF"
+        special_condition: "Possui condição especial?"
+        special_condition_type_id: "Tipo de condição especial"
+        adapted_property: "Propriedade adaptada?"
+        

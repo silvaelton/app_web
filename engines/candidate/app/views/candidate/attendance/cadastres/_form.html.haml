@@ -1,0 +1,31 @@
+= simple_form_for @cadastre_mirror, remote: true, url: candidate.attendance_ticket_step_cadastre_path(@ticket, @ticket_step, @cadastre_mirror), method: :put do |f|
+  - if @cadastre_mirror.errors.any?
+    .alert.alert-danger
+      Ops! Verifique os dados informados.
+  #step_one
+    = f.input :name, input_html: { disabled: true}
+    = f.input :cpf, input_html: { disabled: true}
+    = f.input :rg, placeholder: "Informe seu RG"
+    = f.input :rg_org, placeholder: "Informe o emissor"
+    = f.input :rg_uf_id, as: :select, collection: Support::Common::State.all.map { |k,v| [k.acronym, k.id]}, include_blank: t(:include_blank)
+    = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born.present? ? localize(f.object.born) : nil}
+    = f.input :gender_id, as: :select, collection: Support::Common::Gender.status_active, include_blank: t(:include_blank)
+
+    = link_to "Prosseguir", "javascript:void(0)", class: 'btn btn-primary btn-block btn-collapse', data: { next: 'step_two', current: 'step_one'}
+  .divider
+  #step_two{style: "display: none"}
+    = f.input :civil_state_id, as: :select, collection: Support::Common::CivilState.status_active, include_blank: t(:include_blank)
+    = f.input :arrival_df, as: :string, input_html: { class: 'date', value: f.object.arrival_df.present? ? localize(f.object.arrival_df) : nil}
+    = f.input :special_condition, as: :select, include_blank: false, input_html: { id: "special_condition" }
+    #special_condition_type{style: "display: #{f.object.special_condition? ? 'block' : 'none'} "}
+      = f.input :special_condition_type_id, as: :select, collection: Support::Common::SpecialConditionType.status_active, include_blank: t(:include_blank)
+    = f.input :adapted_property, as: :select, include_blank: false
+
+    .divider
+      = link_to "Retornar", "javascript:void(0)", class: 'btn btn-primary btn-block btn-collapse', data: { next: 'step_one', current: 'step_two'}
+      = f.submit "Salvar informações", class: 'btn btn-success btn-block', data: { disable_with: t(:disable_with)}  
+
+:javascript
+  $("#special_condition").on("change", function() {
+    $("#special_condition_type").toggle();
+  });

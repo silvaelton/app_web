@@ -1,22 +1,23 @@
 .container
-
   - current_candidate.tickets.where(status: true).limit(1).each do |ticket|
-    .row.mt-3
+    .row
       .col-md-12
-        %h6.text-center 
-          %b Atendimento atual
+        .subtitle.text-center.bold Atendimento atual
     .row.mt-2
       .col-md-12
-        %a{href: "#{candidate.attendance_ticket_ticket_steps_path(ticket)}"}
+        %a{href: "#{candidate.attendance_ticket_steps_path(ticket)}"}
           .card
             .card-body
-              %h6 Atendimento ##{ticket.id}
-              %small= ticket.category_id
-              %br/
-              %small
-              %br/
-              %small= ticket.started_at
-  
+              .row
+                .col-3
+                  = image_tag 'warning.png'
+                .col-9
+                  .title.bold
+                    Atendimento ##{ticket.id}
+                  .title-sm
+                    %b= ticket.ticket_category.name
+                  %small.title-xs Pendente
+                    
   - if current_candidate.policy.new_ticket_allowed?
     .row
       .col-md-12
@@ -43,5 +44,5 @@
       .col-md-12
         .card
           .card-body.text-center
-            Você não possui nenhum atendimento.
+            %small Você não possui nenhum atendimento.
                 

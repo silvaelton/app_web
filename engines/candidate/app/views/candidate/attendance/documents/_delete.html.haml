@@ -1,0 +1,17 @@
+#modal-error.modal-dialog.modal-dialog-centered
+  .modal-content
+    .modal-body
+      .row
+        .col-12
+          .error-icon
+            %i.fa.fa-exclamation-triangle
+      .row.mt-4
+        .col-12
+          .content
+            %h4 Atenção
+            %h6 Tem certeza que deseja remover este documento?        
+      .row.mt-4
+        .col-12
+          .content-error
+            = link_to "Sim, desejo remover", candidate.attendance_ticket_step_document_type_document_path(@ticket, @ticket_step, @ticket_document_type, @document), method: :delete, remote: true, class: "btn btn-danger btn-block", data: { disable_with: t(:disable_with)}
+            = link_to "Não, desejo cancelar", "javascript:void(0)", class: "btn btn-dark btn-block modal-close", data: { disable_with: t(:disable_with)}

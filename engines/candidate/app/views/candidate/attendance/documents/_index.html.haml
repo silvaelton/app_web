@@ -1,0 +1,20 @@
+
+- if @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).present?
+  .row 
+    - @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).each_with_index do |document, index|
+      .col-6
+        .card.mb-4
+          .card-body.image-card
+            .row
+              .col-12.text-center
+                .image-content
+                  = link_to image_tag(document.attachment.thumb.url, class: 'img-fluid img-thumbnail', width: 100), candidate.attendance_ticket_step_document_type_document_path(@ticket, @ticket_step, @ticket_document_type, document), remote: true if document.attachment?
+          .remove-image-content
+            = link_to candidate.attendance_ticket_step_document_type_document_delete_path(@ticket, @ticket_step, @ticket_document_type, document), remote: true, class: 'remove-image btn btn-danger' do
+              %i.fa.fa-times
+- else
+  .card
+    .card-body
+      .text-center
+        %p
+          %small Nenhum documento enviado.

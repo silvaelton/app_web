@@ -1,0 +1,9 @@
+- if @cadastre_mirror.errors.any?
+  $(".form-content").html("#{escape_javascript(render 'form')}");
+  $("html, body").animate({ scrollTop: 0 }, "slow");
+- else
+  $(".modal").html("#{escape_javascript(render 'success')}");
+  $(".modal").modal('show');
+  setTimeout(function() { window.location.href = "#{candidate.attendance_ticket_step_document_types_path(@ticket, @ticket_step)}"; }, 3000)
+
+update_js();

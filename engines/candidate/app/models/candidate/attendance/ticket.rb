@@ -8,7 +8,7 @@ module Candidate
 
       has_many :ticket_steps
       
-      belongs_to :cadastre_mirror, required: false, class_name: "Support::Candidate::CadastreMirror"
+      belongs_to :cadastre_mirror, required: false, class_name: "Candidate::Attendance::CadastreMirror"
       
       validates :category_id, presence: true
       validate  :category_is_allowed

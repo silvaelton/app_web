@@ -1,35 +1,29 @@
 
 .container
-  .row
+  .row#header-cadastre
     .col-12
       .card
         .card-body
-          %h4
-            %b Elton Charles Cruz da Silva
+          .title.bold Elton Charles Cruz da Silva
           %p.title-md= @cadastre.cpf.format_cpf
-          %small
-            %p 
-              %b Situação cadastral
-              %br/
-              Habilitado - documentação entregue
-            %p 
-              %b Lista
-              %br/
-              RII 
-          
-  .divider
-  .row
+          %p 
+            .bold Situação cadastral: 
+            Habilitado - documentação aprovada
+          %p 
+            .bold Programa: 
+            RII 
+
+  .row.mt-2
     .col-12
       %a{href: "#{candidate.cadastre_path(current_candidate)}"} 
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'clipboard.png', width: 50
+              .col-3.text-center
+                = image_tag 'clipboard.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Meu dados
-                Detalhamento dos meus dados cadastrais
+                .title.bold Meu dados
+                .title-xs Detalhamento dos meus dados cadastrais
 
                   
   .row.mt-2
@@ -38,12 +32,11 @@
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'ring.png', width: 50
+              .col-3.text-center
+                = image_tag 'ring.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Notificações
-                Listagem de notificações envidas pela CODHAB
+                .title.bold Notificações
+                .title-xs Listagem de notificações envidas pela CODHAB
                   
 
   .row.mt-2
@@ -52,12 +45,11 @@
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'exchange.png', width: 50
+              .col-3.text-center
+                = image_tag 'exchange.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Meus atendimentos 
-                Meus atendimentos e atualizações do cadastro       
+                .title.bold  Meus atendimentos 
+                .title-xs Meus atendimentos e atualizações do cadastro       
 
 
   .row.mt-2
@@ -66,12 +58,11 @@
         .card
           .card-body
             .row
-              .col-3
-                ok
+              .col-3.text-center
+                = image_tag 'contact.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Dados de contato  
-                Atualização de dados de contato
+                .title.bold Dados de contato  
+                .title-xs Atualização de dados de contato
 
   .row.mt-2
     .col-12
@@ -79,12 +70,11 @@
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'document.png', width: 50
+              .col-3.text-center
+                = image_tag 'document.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Meus requerimentos  
-                Requerimentos vínculados ao meu CPF                 
+                .title.bold Meus requerimentos  
+                .title-xs Requerimentos vínculados ao meu CPF                 
 
 
   .row.mt-2
@@ -93,12 +83,11 @@
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'list.png', width: 50
+              .col-3.text-center
+                = image_tag 'list.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Indicações
-                Indicações realizadas para empreendimentos 
+                .title.bold Indicações
+                .title-xs Indicações realizadas para empreendimentos 
 
   .row.mt-2
     .col-12
@@ -106,12 +95,11 @@
         .card
           .card-body
             .row
-              .col-3
-                = image_tag 'question.png', width: 50
+              .col-3.text-center
+                = image_tag 'question.png', width: 50, style: "margin-top: 20px;"
               .col-9
-                %h6
-                  %b Dúvidas
-                FAQ, contato e 
+                .title.bold Dúvidas
+                .title-xs FAQ, contato e 
                   
   .row.mt-2
     .col-12
@@ -119,9 +107,8 @@
         .card
           .card-body
             .row
-              .col-3
+              .col-3.text-center
                 = image_tag 'exit.png', width: 50
               .col-9
-                %h6
-                  %b Finalizar acesso  
-                Finalizar e sair da área restrita                      
+                .title.bold Finalizar acesso  
+                .title-xs Finalizar e sair da área restrita                      

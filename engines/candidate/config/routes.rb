@@ -14,13 +14,16 @@ Candidate::Engine.routes.draw do
     get '/', to: 'tickets#index'
     
     resources :tickets do
-      resources :ticket_steps do 
-        resources :ticket_step_cadastres
-        resources :ticket_step_dependents
-        resources :ticket_step_contacts
+      resources :steps do 
+        resources :cadastres
+        resources :dependents
+        resources :incomes
+        resources :contacts
         
-        resources :ticket_step_document_types do
-          resources :ticket_step_documents
+        resources :document_types do
+          resources :documents do
+            get 'delete'
+          end
         end
 
       end

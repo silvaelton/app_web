@@ -24,6 +24,11 @@ a {
   color: #e7ae05;
 }
 
+a:hover {
+  color: none;
+  text-decoration: none;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -170,12 +175,26 @@ a {
 }
 
 .title {
-  font-weight: bold;
 }
 
 .title-sm {
   font-weight: 0;
   color: #656565;
+}
+
+.title-xs {
+  color: #656565 ;
+}
+
+.title-md {
+  font-weight: 900 !important;
+  color: #656565 ;
+  font-size: 18px;
+}
+
+.bold {
+  font-weight: 900 !important;
+  color: #555555;
 }
 
 
@@ -357,4 +376,9 @@ a {
 #modal-success .modal-header .modal-title {
   font-size: 25px !important;
   font-weight: 900;
+}
+
+#header-cadastre .card {
+  border: none !important;
+  border-top: 10px solid #555555 !important;
 }

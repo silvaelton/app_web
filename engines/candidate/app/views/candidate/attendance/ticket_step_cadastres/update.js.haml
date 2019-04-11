@@ -1,6 +1,0 @@
-- if @cadastre_mirror.errors.any?
-  $(".form-content").html("#{escape_javascript(render 'form')}");
-- else
-  $(".modal").html("#{escape_javascript(render 'success')}");
-  $(".modal").modal('show');
-  setTimeout(function() { window.location.href = "#{candidate.attendance_ticket_ticket_step_ticket_step_document_types_path(@ticket, @ticket_step)}"; }, 3000)

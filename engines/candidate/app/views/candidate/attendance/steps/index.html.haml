@@ -1,13 +1,9 @@
 .container
-  .row.mb-2
-    .col-md-12
-      %h6.text-center 
-        %b Histórico de atendimento
   - @ticket.ticket_category.ticket_category_steps.order(:screen_order).each do |step|
     - ticket_step = @ticket.ticket_steps.find_by(category_step_id: step.id)
     .row.mb-3
       .col-md-12            
-        %a{href: "#{candidate.attendance_ticket_ticket_step_path(@ticket, step)}"}
+        %a{href: "#{candidate.attendance_ticket_step_path(@ticket, step)}"}
           .card
             .card-body
               .row 
@@ -21,5 +17,5 @@
                 .col-9
                   .title
                     %b= step.name
-                  .subtitle= step.resume.humanize
+                  .title-xs= step.resume.humanize
                 

@@ -3,6 +3,6 @@
 - else
   $(".modal").html("#{escape_javascript(render 'success')}");
   $(".modal").modal("show");
-  setTimeout(function() { window.location.href = "#{candidate.attendance_ticket_ticket_steps_path(@ticket)}"; }, 3000)
+  setTimeout(function() { window.location.href = "#{candidate.attendance_ticket_steps_path(@ticket)}"; }, 3000)
 
 update_js();

@@ -1,7 +1,15 @@
 .container
   .row.mt-2
     .col-md-12
-      = simple_form_for @ticket_document, url: candidate.attendance_ticket_ticket_step_ticket_step_documents_path(@ticket, @ticket_step),  html: {id: 'form-upload'} do |f|
+      .card
+        .card-body
+          .title-md.bold.text-center
+            %b= @ticket_document.document_type.label.humanize
+            %p
+              %small= @ticket_document.document_type.description
+  .row.mt-2
+    .col-md-12
+      = simple_form_for @ticket_document, url: attendance_ticket_step_document_type_documents_path(@ticket, @ticket_step, @ticket_document_type),  html: {id: 'form-upload'} do |f|
         %label.btn.btn-primary.btn-block
           %b Anexar foto
           %span{style: 'display: none'}
@@ -14,4 +22,4 @@
             .progress-bar{style: "width: 0%"}
   .row.mt-2
     .col-md-12.content-index            
-      = render 'show'
+      = render 'index'

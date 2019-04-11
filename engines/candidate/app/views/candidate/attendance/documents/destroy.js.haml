@@ -1,0 +1,3 @@
+- if !@document.errors.any?
+  $('.modal').modal('hide');
+  $(".content-index").html("#{escape_javascript(render 'index')}");
