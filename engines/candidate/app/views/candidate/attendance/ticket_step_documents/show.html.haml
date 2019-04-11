@@ -1,7 +1,7 @@
 .container
   .row.mt-2
     .col-md-12
-      = simple_form_for @ticket_document, url: attendance_ticket_ticket_step_ticket_step_document_type_ticket_step_documents_path(@ticket, @ticket_step, @ticket_document_type),  html: {id: 'form-upload'} do |f|
+      = simple_form_for @ticket_document, url: candidate.attendance_ticket_ticket_step_ticket_step_documents_path(@ticket, @ticket_step),  html: {id: 'form-upload'} do |f|
         %label.btn.btn-primary.btn-block
           %b Anexar foto
           %span{style: 'display: none'}

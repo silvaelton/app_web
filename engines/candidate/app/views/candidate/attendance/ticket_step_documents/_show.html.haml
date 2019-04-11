@@ -1,0 +1,17 @@
+
+- @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).reject(&:new_record?).each_with_index do |document, index|
+  .row.mt-4
+    .col-12
+      .card
+        .card-body.card-header
+          .text-center
+            %b Imagem #{@ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).count - index} 
+        .card-body.image-card
+          .row
+            .col-12.text-center
+              .image-content
+                = link_to image_tag(document.attachment.thumb.url, class: 'img-fluid img-thumbnail'), "#", remote: true if document.attachment?
+              %small (Toque para visualizar)
+        .remove-image-content
+          = link_to "#", remote: true, class: 'remove-image btn btn-danger' do
+            %i.fa.fa-times

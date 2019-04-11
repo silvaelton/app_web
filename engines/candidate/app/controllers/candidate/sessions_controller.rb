@@ -19,6 +19,12 @@ module Candidate
       end
     end
 
+    def destroy
+      session[:candidate_id] = nil
+
+      redirect_to candidate.root_path
+    end
+
     private
 
     def set_params

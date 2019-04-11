@@ -1,4 +1,4 @@
-= simple_form_for url_for do |f|
+= simple_form_for @cadastre_mirror, remote: true, url: candidate.attendance_ticket_ticket_step_ticket_step_cadastre_path(@ticket, @ticket_step, @cadastre_mirror), method: :put do |f|
 
   #step_one
     = f.input :name, input_html: { disabled: true}
@@ -19,9 +19,12 @@
       = f.input :special_condition_type_id, as: :select, collection: Support::Common::SpecialConditionType.status_active, include_blank: t(:include_blank)
     = f.input :adapted_property, as: :select, include_blank: false
 
-    = link_to "Salvar", "javascript:void(0)", class: 'btn btn-success btn-block'
+    
   .divider
-
+  #step_three
+    = f.input :personal_income, input_html: { class: 'coin'}
+  .divider
+    = f.submit "Salvar informações", class: 'btn btn-success btn-block'    
 
 :javascript
   $("#special_condition").on("change", function() {

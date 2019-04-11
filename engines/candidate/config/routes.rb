@@ -2,7 +2,13 @@ Candidate::Engine.routes.draw do
   root 'home#index'
   
   resources :sessions
+  
   resources :cadastres
+  resources :notifications
+  resources :requeriments
+  resources :indications
+  resources :questions
+  
 
   namespace :attendance do 
     get '/', to: 'tickets#index'
@@ -11,9 +17,12 @@ Candidate::Engine.routes.draw do
       resources :ticket_steps do 
         resources :ticket_step_cadastres
         resources :ticket_step_dependents
-        resources :ticket_step_incomes
         resources :ticket_step_contacts
-        resources :ticket_step_documents
+        
+        resources :ticket_step_document_types do
+          resources :ticket_step_documents
+        end
+
       end
     end
 
@@ -21,6 +30,5 @@ Candidate::Engine.routes.draw do
     resources :schedules
   end
   
-  resources :notifications
-  
+
 end

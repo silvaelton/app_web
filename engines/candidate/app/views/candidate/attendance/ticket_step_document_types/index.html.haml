@@ -1,0 +1,12 @@
+.container
+  - @ticket_step.ticket_category_step.step_documents.each do |document|
+    .row.mt-2
+      .col-md-12
+        %a{href: "#{candidate.attendance_ticket_ticket_step_ticket_step_document_type_ticket_step_documents_path(@ticket, @ticket_step, document)}"}
+          .card
+            .card-body
+              .row
+                .col-3
+                  = image_tag 'warning.png', width: 40
+                .col-9
+                  %p= document.document_type.label.humanize

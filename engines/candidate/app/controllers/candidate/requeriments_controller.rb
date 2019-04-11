@@ -1,7 +1,7 @@
 require_dependency 'candidate/application_controller'
 
 module Candidate
-  class IndicationsController < ApplicationController
+  class RequerimentsController < ApplicationController
     
     def index
     end 
@@ -9,7 +9,7 @@ module Candidate
     private
 
     def set_title
-      @header_title = "Indicações"
+      @header_title = "Requerimentos"
       @header_backlink = candidate.root_path
     end
 

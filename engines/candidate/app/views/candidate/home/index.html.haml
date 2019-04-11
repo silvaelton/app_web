@@ -48,15 +48,16 @@
 
   .row.mt-2
     .col-12
-      .card
-        .card-body
-          .row
-            .col-3
-              = image_tag 'exchange.png', width: 50
-            .col-9
-              %h6
-                %b Meus atendimentos 
-              Meus atendimentos e atualizações do cadastro       
+      %a{href: "#{candidate.attendance_tickets_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'exchange.png', width: 50
+              .col-9
+                %h6
+                  %b Meus atendimentos 
+                Meus atendimentos e atualizações do cadastro       
 
 
   .row.mt-2
@@ -74,49 +75,53 @@
 
   .row.mt-2
     .col-12
-      .card
-        .card-body
-          .row
-            .col-3
-              = image_tag 'document.png', width: 50
-            .col-9
-              %h6
-                %b Meus requerimentos  
-              Requerimentos vínculados ao meu CPF                 
+      %a{href: "#{candidate.requeriments_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'document.png', width: 50
+              .col-9
+                %h6
+                  %b Meus requerimentos  
+                Requerimentos vínculados ao meu CPF                 
 
 
   .row.mt-2
     .col-12
-      .card
-        .card-body
-          .row
-            .col-3
-              = image_tag 'list.png', width: 50
-            .col-9
-              %h6
-                %b Indicações
-              Indicações realizadas para empreendimentos 
+      %a{href: "#{candidate.indications_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'list.png', width: 50
+              .col-9
+                %h6
+                  %b Indicações
+                Indicações realizadas para empreendimentos 
 
   .row.mt-2
     .col-12
-      .card
-        .card-body
-          .row
-            .col-3
-              = image_tag 'question.png', width: 50
-            .col-9
-              %h6
-                %b Dúvidas
-              FAQ, contato e 
+      %a{href: "#{candidate.questions_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'question.png', width: 50
+              .col-9
+                %h6
+                  %b Dúvidas
+                FAQ, contato e 
                   
   .row.mt-2
     .col-12
-      .card
-        .card-body
-          .row
-            .col-3
-              = image_tag 'exit.png', width: 50
-            .col-9
-              %h6
-                %b Finalizar acesso  
-              Finalizar e sair da área restrita                      
+      %a{href: "#{candidate.session_path(current_candidate)}", data: { method: :delete}} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'exit.png', width: 50
+              .col-9
+                %h6
+                  %b Finalizar acesso  
+                Finalizar e sair da área restrita                      

@@ -2,8 +2,7 @@ require_dependency 'candidate/application_controller'
 
 module Candidate
   class HomeController < ApplicationController
-    layout 'application-less'
-    
+
     def index
       @cadastre = current_candidate
       @header_backlink = 'app_home'

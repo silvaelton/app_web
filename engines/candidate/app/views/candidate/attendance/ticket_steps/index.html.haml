@@ -1,17 +1,25 @@
 .container
-  .row.mb-3
+  .row.mb-2
     .col-md-12
-      .card
-        .card-body
-  .row.mb-3
-    .col-md-12
-      .card
-        .card-body
-  .row.mb-3
-    .col-md-12
-      .card
-        .card-body
-  .row.mb-3
-    .col-md-12
-      .card
-        .card-body                              
+      %h6.text-center 
+        %b Histórico de atendimento
+  - @ticket.ticket_category.ticket_category_steps.order(:screen_order).each do |step|
+    - ticket_step = @ticket.ticket_steps.find_by(category_step_id: step.id)
+    .row.mb-3
+      .col-md-12            
+        %a{href: "#{candidate.attendance_ticket_ticket_step_path(@ticket, step)}"}
+          .card
+            .card-body
+              .row 
+                .col-3
+                  - if step.step_required
+                    - if !ticket_step.nil? && (ticket_step.data_updated || ticket_step.confirmation)
+                      = image_tag 'checked.png' 
+                    - else
+                      = image_tag 'warning.png' 
+
+                .col-9
+                  .title
+                    %b= step.name
+                  .subtitle= step.resume.humanize
+                

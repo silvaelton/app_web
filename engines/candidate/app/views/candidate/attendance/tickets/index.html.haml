@@ -1,34 +1,47 @@
 .container
-  .row.mt-3
-    .col-md-12
-      %h6.text-center 
-        %b Atendimento atual
-  .row.mt-2
-    .col-md-12
-      .card
-        .card-body
-          %h6 Atendimento #1
-          %small Atualização cadastral
-          %br/
-          %small Situação
-          %br/
-          %small 01/08/2018
-  .row.mt-3
-    .col-md-12
-      = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-primary btn-block'            
-  %hr/
-  .row.mb-3
-    .col-md-12
-      %h6.text-center 
-        %b Meus atendimentos (0)
-  - 10.times do
+
+  - current_candidate.tickets.where(status: true).limit(1).each do |ticket|
+    .row.mt-3
+      .col-md-12
+        %h6.text-center 
+          %b Atendimento atual
     .row.mt-2
       .col-md-12
+        %a{href: "#{candidate.attendance_ticket_ticket_steps_path(ticket)}"}
+          .card
+            .card-body
+              %h6 Atendimento ##{ticket.id}
+              %small= ticket.category_id
+              %br/
+              %small
+              %br/
+              %small= ticket.started_at
+  
+  - if current_candidate.policy.new_ticket_allowed?
+    .row
+      .col-md-12
+        = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-primary btn-block', data: { disable_with: t(:disable_with)}            
+  %hr.divider
+  .row.mb-2
+    .col-md-12
+      %h6.text-center 
+        %b Histórico de atendimento
+  - if current_candidate.tickets.where(status: false).present?
+    - current_candidate.tickets.where(status: false).each do |ticket|
+      .row.mt-2
+        .col-md-12
+          .card
+            .card-body
+              %h6 Atendimento #1
+              %small Atualização cadastral
+              %br/
+              %small Situação
+              %br/
+              %small 01/08/2018
+  - else
+    .row.mt-1
+      .col-md-12
         .card
-          .card-body
-            %h6 Atendimento #1
-            %small Atualização cadastral
-            %br/
-            %small Situação
-            %br/
-            %small 01/08/2018
+          .card-body.text-center
+            Você não possui nenhum atendimento.
+                
