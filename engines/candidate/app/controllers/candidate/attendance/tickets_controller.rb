@@ -17,7 +17,7 @@ module Candidate
 
       def create
         @ticket = current_candidate.tickets.new(set_params)
-        @ticket.save
+        @ticket.save!
       end
       
       private

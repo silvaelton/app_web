@@ -1,5 +1,5 @@
 .container
-  - current_candidate.tickets.where(status: true).limit(1).each do |ticket|
+  - current_candidate.tickets.opened.limit(1).each do |ticket|
     .row
       .col-md-12
         .subtitle.text-center.bold Atendimento atual
@@ -27,8 +27,8 @@
     .col-md-12
       %h6.text-center 
         %b Histórico de atendimento
-  - if current_candidate.tickets.where(status: false).present?
-    - current_candidate.tickets.where(status: false).each do |ticket|
+  - if current_candidate.tickets.closed.present?
+    - current_candidate.tickets.closed.each do |ticket|
       .row.mt-2
         .col-md-12
           .card

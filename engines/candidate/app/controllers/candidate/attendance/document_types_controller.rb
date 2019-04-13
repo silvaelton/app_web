@@ -7,6 +7,7 @@ module Candidate
       before_action :set_title
       
       def index
+        session[:dependent_mirror_id] = params[:dependent_mirror_id] if params[:dependent_mirror_id].present?
       end
 
       private

@@ -4,14 +4,14 @@
     .col-12
       .card
         .card-body
-          .title.bold Elton Charles Cruz da Silva
+          .title.bold= @cadastre.camel_case_name
           %p.title-md= @cadastre.cpf.format_cpf
           %p 
             .bold Situação cadastral: 
-            Habilitado - documentação aprovada
+            = @cadastre.current_situation_name
           %p 
             .bold Programa: 
-            RII 
+            = @cadastre.current_program_name 
 
   .row.mt-2
     .col-12
@@ -24,6 +24,18 @@
               .col-9
                 .title.bold Meu dados
                 .title-xs Detalhamento dos meus dados cadastrais
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.attendance_tickets_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'exchange.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold  Iniciar atendimento
+                .title-xs Meus atendimentos e atualizações do cadastro       
+
 
                   
   .row.mt-2
@@ -38,18 +50,6 @@
                 .title.bold Notificações
                 .title-xs Listagem de notificações envidas pela CODHAB
                   
-
-  .row.mt-2
-    .col-12
-      %a{href: "#{candidate.attendance_tickets_path}"} 
-        .card
-          .card-body
-            .row
-              .col-3.text-center
-                = image_tag 'exchange.png', width: 50, style: "margin-top: 20px;"
-              .col-9
-                .title.bold  Meus atendimentos 
-                .title-xs Meus atendimentos e atualizações do cadastro       
 
 
   .row.mt-2

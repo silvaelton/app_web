@@ -15,6 +15,10 @@ module Candidate
 
       after_create :set_data_ticket
 
+      def policy
+        call_policy('Support::Attendance::TicketPolicy', self)
+      end
+
       private
 
       def category_is_allowed

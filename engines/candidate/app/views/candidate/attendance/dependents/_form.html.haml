@@ -1,0 +1,29 @@
+= simple_form_for @dependent, url: @dependent.new_record? ? candidate.attendance_ticket_step_dependents_path(@ticket, @ticket_step) : candidate.attendance_ticket_step_dependent_path(@ticket, @ticket_step), method: @dependent.new_record? ? 'post' : 'put' , remote: true do |f|
+  = f.input :kinship_id, as: :select, collection: Support::Common::Kinship.status_active, include_blank: t(:include_blank)
+  = f.input :name, placeholder: "Informe o nome"
+  = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born.present? ? localize(f.object.born) : nil}
+  = f.input :cpf, placeholder: "Informe o CPF"
+  = f.input :rg, placeholder: "Informe o RG"
+  = f.input :rg_org, placeholder: "Informe o emissor"
+  = f.input :rg_uf_id, as: :select, collection: Support::Common::State.all.map {|k,v| [k.acronym, k.id]}, include_blank: t(:include_blank)
+  = f.input :gender_id, as: :select, collection: Support::Common::Gender.status_active, include_blank: t(:include_blank)
+  = f.input :civil_state_id, as: :select, collection: Support::Common::CivilState.status_active, include_blank: t(:include_blank)
+  = f.input :special_condition, as: :select, include_blank: false, input_html: { id: 'special_condition'}
+  #special_condition_type{style: "display: #{f.object.special_condition ? 'block' : 'none'}"}
+    = f.input :special_condition_type_id, as: :select, collection: Support::Common::SpecialConditionType.status_active, include_blank: t(:include_blank)
+    = f.input :cid
+  = f.input :nis
+  = f.input :employment
+  = f.input :admission_date, as: :string, input_html: { class: 'date', value: f.object.admission_date.present? ? localize(f.object.admission_date) : nil}
+  = f.input :nationality
+  = f.input :place_birth
+
+  .divider 
+
+  = f.submit "Salvar dependente", class: 'btn btn-success btn-block', data: { disable_with: t(:disable_with)}
+
+:javascript
+  $("#special_condition").on("change", function() {
+    $("#special_condition_type").toggle();
+  });
+  

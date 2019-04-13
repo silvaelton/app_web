@@ -4,9 +4,9 @@
       .card
         .card-body
           .title-md.bold.text-center
-            %b= @ticket_document.document_type.label.humanize
+            %b= @ticket_document.document_type.name
             %p
-              %small= @ticket_document.document_type.description
+              %small= @ticket_document.document_type.introduction
   .row.mt-2
     .col-md-12
       = simple_form_for @ticket_document, url: attendance_ticket_step_document_type_documents_path(@ticket, @ticket_step, @ticket_document_type),  html: {id: 'form-upload'} do |f|

@@ -2,11 +2,11 @@
   .modal-content
     .modal-header
       %h5.modal-title
-        Ops...
+        .bold  Ops...
       %a.close.modal-close
         %i.fa.fa-close
     .modal-body.text-center
       .mt-4
-      %h6 O CPF informado não foi encontrado, tente novamente.
+      %p O CPF informado não foi encontrado, tente novamente.
       .mt-4
       = link_to "Tentar novamente", "javascript:void(0)", class: 'btn btn-success btn-block modal-close'

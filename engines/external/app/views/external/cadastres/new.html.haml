@@ -3,6 +3,16 @@
     .col-12
       .card
         .card-body
-          = simple_form_for @cadastre, remote: true do |f|
-            = f.input :cpf, input_html: { class: 'cpf'}, label: false
-            = f.submit "Pesquisar CPF", class: 'btn btn-success btn-block'
+          .row 
+            .col-12.text-center
+              = image_tag 'search.png'
+              .divider
+              .title
+                .bold Informe um CPF
+          .divider
+          .row
+            .col-12
+
+              = simple_form_for @cadastre, remote: true do |f|
+                = f.input :cpf, label: false, placeholder: "000.000.000-00"
+                = f.submit "Pesquisar CPF", class: 'btn btn-primary btn-block'

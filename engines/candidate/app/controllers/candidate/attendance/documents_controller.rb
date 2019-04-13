@@ -7,6 +7,7 @@ module Candidate
       before_action :set_ticket_step
       before_action :set_ticket_document_type
       before_action :set_title
+      before_action :set_dependent_mirror
 
       def index
         @ticket_document = Candidate::Attendance::TicketDocument.new(ticket_id: @ticket.id, ticket_step_id: @ticket_step.id, document_type_id: @ticket_document_type.id)
@@ -52,6 +53,10 @@ module Candidate
       def set_title
         @header_title = "Envio de documentos"
         @header_backlink = candidate.attendance_ticket_step_document_types_path(@ticket, @ticket_step)
+      end
+
+      def set_dependent_mirror 
+        @dependent_mirror_id = session[:dependent_mirror_id]
       end
     end
   end

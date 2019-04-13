@@ -1,13 +1,14 @@
 .container
   - @ticket_step.ticket_category_step.step_documents.each do |document|
-    .row.mt-2
-      .col-md-12
-        %a{href: "#{candidate.attendance_ticket_step_document_type_documents_path(@ticket, @ticket_step, document.document_type_id)}"}
-          .card
-            .card-body
-              .row
-                .col-3
-                  = image_tag 'warning.png', width: 40
-                .col-9
-                  .title-xs= document.document_type.name.humanize
-                  Documentos enviados: #{@ticket_step.ticket_documents.where(document_type_id: document.document_type_id).count}
+    - if @ticket.policy.require_document?(document_id: document.id, ticket_step_id: @ticket_step.category_step_id, context: @ticket_step.ticket_category_step.view_form, dependent_mirror_id: @dependent_mirror_id)
+      .row.mt-2
+        .col-md-12
+          %a{href: "#{candidate.attendance_ticket_step_document_type_documents_path(@ticket, @ticket_step, document.document_type_id)}"}
+            .card
+              .card-body
+                .row
+                  .col-3
+                    = image_tag 'warning.png', width: 40
+                  .col-9
+                    .title-xs= document.document_type.name.humanize
+                    Documentos enviados: #{@ticket_step.ticket_documents.where(document_type_id: document.document_type_id).count}

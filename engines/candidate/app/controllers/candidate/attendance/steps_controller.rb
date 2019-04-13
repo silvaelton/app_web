@@ -19,6 +19,8 @@ module Candidate
         case @ticket_category_step.view_form
         when 'cadastre'
           redirect_to candidate.edit_attendance_ticket_step_cadastre_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
+        when 'income'
+          redirect_to candidate.attendance_ticket_step_incomes_path(@ticket, @step_id)
         when 'dependent'
           redirect_to candidate.attendance_ticket_step_dependents_path(@ticket, @step_id)
         when 'contact'

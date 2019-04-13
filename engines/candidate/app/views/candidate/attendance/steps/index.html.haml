@@ -12,7 +12,9 @@
                     - if !ticket_step.nil? && (ticket_step.data_updated || ticket_step.confirmation)
                       = image_tag 'checked.png' 
                     - else
-                      = image_tag 'warning.png' 
+                      = image_tag 'warning.png'
+                  - else
+                    = image_tag 'exchange.png'
 
                 .col-9
                   .title

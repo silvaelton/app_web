@@ -30,8 +30,8 @@ module External
     end
 
     def set_title
-      @header_title = "Pesquisa CPF"
-      @header_subtitle = "Formulário de pesquisa"
+      @header_title    = "Pesquisa CPF"
+      @header_backlink = 'app_home'
     end
 
   end

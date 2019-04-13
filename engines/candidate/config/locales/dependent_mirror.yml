@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models: 
+      "candidate/attendance/dependent_mirror": "Dependente"
+    attributes:
+      "candidate/attendance/dependent_mirror":
+        name: "Nome"
+        cpf: "CPF"
+        rg: "RG"
+        rg_org: "RG Órgão Emissor"
+        rg_uf_id: "RG UF"
+        born: "Data de nascimento"
+        gender_id: "Sexo"
+        civil_state_id: "Estado civil"
+        special_condition: "Possui condição especial?"
+        special_condition_type_id: "Tipo de condição especial"
+        place_birth: "Naturalidade"   
+        kinship_id: "Parentesco"
+        employment: "Profissão (opcional)"
+        nationality: "Nacionalidade"
+        admission_date: "Data de admissão (opcional)"  
+        nis: "NIS (opcional)"

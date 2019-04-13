@@ -4,21 +4,21 @@
     = simple_form_for @requeriment do |f|
       - if @requeriment.errors.any?
         .alert.alert-danger.text-center
-          %b Ops... Não foi possível iniciar seu requerimento, revise seus dados.
+          .bold Ops... Não foi possível iniciar seu requerimento, revise seus dados.
       #category{style: 'display: block'}
         .text-center
           .title 
-            %b 1 de 4 passos
+            .bold 1 de 4 passos
           .subtitle Selecione o tipo de requerimento
         .divider
         = f.input :category_id, label: false, as: :select, collection: @requeriment_service.allowed_categories.map { |k,v| [k.name.humanize, k.id] } , include_blank: 'Selecione...', input_html: { id: 'category_id'}
+        = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next ', data: { current: '#category', next: '#data'}
         #btn-category{style: "display: #{f.object.category_id.present? ? 'block' : 'none'}"}
-          = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next ', data: { current: '#category', next: '#data'}
         
       #data{style: 'display: none'}
         .text-center
           .title 
-            %b 2 de 4 passos
+            .bold 2 de 4 passos
           .subtitle Informe seus dados pessoais      
         .divider
         = f.input :name, placeholder: "Informe seu nome"
@@ -33,7 +33,7 @@
       #data-content{style: 'display: none'}
         .text-center
           .title 
-            %b 3 de 4 passos
+            .bold 3 de 4 passos
           .subtitle Informe o conteúdo do seu requerimento    
         .divider
         = f.input :content, label: false, as: :text, input_html: { rows: 6}

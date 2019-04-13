@@ -4,7 +4,7 @@ module Candidate
   class HomeController < ApplicationController
 
     def index
-      @cadastre = current_candidate
+      @cadastre = current_candidate.presenter
       @header_backlink = 'app_home'
     end
     

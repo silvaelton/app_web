@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-12
+      = link_to "Adicionar dependente", candidate.new_attendance_ticket_step_dependent_path(@ticket, @ticket_step), class: 'btn btn-primary btn-block', data: { disable_with: t(:disable_with)}  
+  .row
+    .col-12
+      - if @dependents.present?
+        - @dependents.each do |dependent|
+          %a{href: "#{candidate.edit_attendance_ticket_step_dependent_path(@ticket, @ticket_step, dependent)}"}
+            .card.mt-4
+              .card-body
+                .row
+                  .col-12
+                    %p
+                      %b= dependent.name
+                    = dependent.kinship.name rescue t(:no_info)
+      - else
+        .card.mt-4
+          .card-body
+            .row
+              .col-12.text-center
+                %small Não existem dependentes cadastrados.
+
