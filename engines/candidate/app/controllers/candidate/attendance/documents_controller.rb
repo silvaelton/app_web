@@ -10,12 +10,17 @@ module Candidate
       before_action :set_dependent_mirror
 
       def index
-        @ticket_document = Candidate::Attendance::TicketDocument.new(ticket_id: @ticket.id, ticket_step_id: @ticket_step.id, document_type_id: @ticket_document_type.id)
+        @ticket_document = Candidate::Attendance::TicketDocument.new(ticket_id: @ticket.id, ticket_step_id: @ticket_step.id, 
+                                                                     document_type_id: @ticket_document_type.id, 
+                                                                     dependent_mirror_id: @dependent_mirror_id)
+
         @header_backlink = candidate.attendance_ticket_step_document_types_path(@ticket, @ticket_step)
       end 
 
       def create
-        @ticket_document = Candidate::Attendance::TicketDocument.where(ticket_id: @ticket.id, ticket_step_id: @ticket_step.id, document_type_id: @ticket_document_type.id).new(set_params)
+        @ticket_document = Candidate::Attendance::TicketDocument.where(ticket_id: @ticket.id, ticket_step_id: @ticket_step.id, 
+                                                                       document_type_id: @ticket_document_type.id, 
+                                                                       dependent_mirror_id: @dependent_mirror_id).new(set_params)
         @ticket_document.save
       end
 
@@ -32,6 +37,10 @@ module Candidate
         @document.destroy
       end
 
+      def close 
+        @ticket_step.update(document: true, document_at: Time.now)
+      end
+
       private
 
       def set_params
@@ -40,6 +49,8 @@ module Candidate
     
       def set_ticket
         @ticket = current_candidate.tickets.find(params[:ticket_id])
+        @dependent_mirror_id = session[:dependent_mirror_id]
+        
       end
       
       def set_ticket_step

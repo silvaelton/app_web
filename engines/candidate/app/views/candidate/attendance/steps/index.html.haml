@@ -1,23 +1,18 @@
 .container
   - @ticket.ticket_category.ticket_category_steps.order(:screen_order).each do |step|
-    - ticket_step = @ticket.ticket_steps.find_by(category_step_id: step.id)
     .row.mb-3
-      .col-md-12            
-        %a{href: "#{candidate.attendance_ticket_step_path(@ticket, step)}"}
+      .col-md-12    
+        %a{href: "#{attendance_step_url(ticket: @ticket, ticket_category_step: step)}", data: { remote: true}}
           .card
             .card-body
               .row 
                 .col-3
-                  - if step.step_required
-                    - if !ticket_step.nil? && (ticket_step.data_updated || ticket_step.confirmation)
-                      = image_tag 'checked.png' 
-                    - else
-                      = image_tag 'warning.png'
-                  - else
-                    = image_tag 'exchange.png'
-
+                  = attendance_step_icon(ticket: @ticket, ticket_category_step: step)
                 .col-9
                   .title
                     %b= step.name
                   .title-xs= step.resume.humanize
-                
+                  = attendance_step_action(ticket: @ticket, ticket_category_step: step)
+  .row
+    .col-md-12
+      = link_to "Finalizar meu atendimento", attendance_ticket_close_path(@ticket), remote: true, class: 'btn btn-success btn-block'

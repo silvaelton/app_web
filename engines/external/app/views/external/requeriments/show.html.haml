@@ -1,0 +1,44 @@
+.container
+  .row
+    .col-md-12
+      .card
+        .card-body
+          .row
+            .col-md-12
+              %h5.bold Protocolo Nº #{@requeriment.id}
+          .divider
+          .row
+            .col-md-12
+              %p 
+                %b Solicitação
+                %br/
+                %small Realizada em #{@requeriment.created_at.strftime("%d/%m/%Y")}
+              %small= @requeriment.content
+          .divider
+          .row
+            .col-md-12
+              %h6 Anexo(s)  
+          .row
+            .col-md-12
+              - if @requeriment.requeriment_attachments.present?
+                - @requeriment.requeriment_attachments.each do |attach|
+                  = link_to image_tag(attach.attachment.thumb.url, class: 'img-fluid img-thumbnail', width: '60'), external.requeriment_requeriment_attachment_path(@requeriment, attach), remote: true if attach.attachment?
+              - else
+                %small Nenhum anexo enviado.
+
+          %hr/ 
+          - if @requeriment.attendant_answer? 
+            .row
+              .col-md-12
+                %p 
+                  %b Resposta
+                  %br/
+                  %small Respondido em #{@requeriment.attendant_answer_at.strftime("%d/%m/%Y")}
+                %small= @requeriment.attendant_answer_content            
+          - else 
+            .row
+              .col-md-12
+                %p 
+                  %b Resposta
+                  %br/
+                %small Em análise pela CODHAB. Aguarde a resposta.          

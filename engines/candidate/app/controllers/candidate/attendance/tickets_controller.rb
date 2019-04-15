@@ -19,6 +19,9 @@ module Candidate
         @ticket = current_candidate.tickets.new(set_params)
         @ticket.save!
       end
+
+      def close
+      end
       
       private
 

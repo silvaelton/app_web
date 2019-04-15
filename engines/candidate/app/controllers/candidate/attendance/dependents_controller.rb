@@ -14,7 +14,7 @@ module Candidate
 
       def new
         
-        @dependent = @ticket.cadastre_mirror.dependent_mirrors.new
+        @dependent = @ticket.cadastre_mirror.dependent_mirrors.new(created: true)
 
         @header_title = "Novo dependente"
         @header_backlink = candidate.attendance_ticket_step_dependents_path(@ticket, @ticket_step)
@@ -22,6 +22,7 @@ module Candidate
       
       def create
         @dependent = @ticket.cadastre_mirror.dependent_mirrors.new(set_params)
+        @dependent.created = true
         @dependent.save
       end
 
@@ -32,6 +33,15 @@ module Candidate
       def update
         @dependent = @ticket.cadastre_mirror.dependent_mirrors.find(params[:id])
         @dependent.update(set_params)
+      end
+
+      def destroy 
+      end
+
+      def close 
+        @ticket_step.update(data_updated: true, date_updated_at: Time.now, document: true, document_at: Time.now)
+
+        redirect_to attendance_ticket_steps_path(@ticket)
       end
 
       private

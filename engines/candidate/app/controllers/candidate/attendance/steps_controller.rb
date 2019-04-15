@@ -18,16 +18,34 @@ module Candidate
 
         case @ticket_category_step.view_form
         when 'cadastre'
-          redirect_to candidate.edit_attendance_ticket_step_cadastre_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
+          @redirect_to = candidate.edit_attendance_ticket_step_cadastre_url(@ticket, @step_id, @ticket.cadastre_mirror_id)
         when 'income'
-          redirect_to candidate.attendance_ticket_step_incomes_path(@ticket, @step_id)
+          @redirect_to = candidate.attendance_ticket_step_incomes_url(@ticket, @step_id)
         when 'dependent'
-          redirect_to candidate.attendance_ticket_step_dependents_path(@ticket, @step_id)
+          @redirect_to = candidate.attendance_ticket_step_dependents_url(@ticket, @step_id)
         when 'contact'
-          redirect_to candidate.edit_attendance_ticket_step_contact_path(@ticket, @step_id, @ticket.cadastre_mirror_id)
+          @redirect_to = candidate.edit_attendance_ticket_step_cadastre_contact_url(@ticket, @step_id, @ticket.cadastre_mirror_id)
         when 'document'
-          redirect_to candidate.attendance_ticket_step_documents_path(@ticket, @step_id)
+          @redirect_to = candidate.attendance_ticket_step_documents_url(@ticket, @step_id)
         end
+      end
+
+      def document_close
+        @ticket_category_step = Candidate::Attendance::TicketStep.find_by(id: params[:step_id])
+        @ticket_category_step.update(document: true, document_at: Time.now)
+
+        redirect_to candidate.attendance_ticket_steps_path(@ticket)
+      end
+      
+      def reopen 
+        @ticket_step = Candidate::Attendance::TicketStep.find_by(id: params[:step_id])
+      end
+      
+      def reopen_step 
+        @ticket_step = Candidate::Attendance::TicketStep.find_by(id: params[:step_id])
+        @ticket_step.update(data_updated: false, date_updated_at: nil, document: false, document_at: nil)
+        
+        redirect_to candidate.attendance_ticket_steps_path(@ticket)
       end
 
       private

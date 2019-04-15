@@ -10,7 +10,7 @@ module External
 
     def set_title
       @header_title = "Informações gerais"
-      @header_subtitle = "Tire suas dúvidas"
+      @header_backlink = "app_home"
     end
   end
 end

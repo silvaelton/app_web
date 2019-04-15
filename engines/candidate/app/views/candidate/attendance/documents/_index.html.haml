@@ -1,7 +1,7 @@
 
-- if @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).present?
+- if @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type, dependent_mirror_id: @dependent_mirror_id).present?
   .row 
-    - @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type).each_with_index do |document, index|
+    - @ticket_step.ticket_documents.where(document_type_id: @ticket_document_type, dependent_mirror_id: @dependent_mirror_id).each_with_index do |document, index|
       .col-6
         .card.mb-4
           .card-body.image-card

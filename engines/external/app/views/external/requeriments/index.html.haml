@@ -1,7 +1,7 @@
 .container
   .row
     .col-md-12
-      - if @requeriment_service.not_allowed?
+      - if @requeriment_policy.not_allowed?
         .card
           .card-body.text-center.card-black 
             Não é possível iniciar um novo requerimento pois existe requerimento aberto.
@@ -21,8 +21,14 @@
                       %b N°
                       #{requeriment.id} 
                     %p.title-sm
-                      %b Aberto em: #{requeriment.created_at.format_date}
-            
+                      = requeriment.requeriment_category.name rescue t(:no_info)
+                    - if requeriment.attendant_answer?
+                      %p.title-sm
+                        Respondido em #{requeriment.attendant_answer_at.strftime("%d/%m/%Y")}
+                    - else 
+                      %p
+                        %b Aberto em #{requeriment.created_at.format_date}
+          
         
       - else
         .row

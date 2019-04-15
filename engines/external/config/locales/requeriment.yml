@@ -12,4 +12,5 @@ pt-BR:
         city_id: "Cidade"
         document_number: "Processo (opcional)"
         content: "Conteúdo"
+        born: "Data de nascimento"
     

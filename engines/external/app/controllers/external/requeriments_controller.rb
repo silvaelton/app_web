@@ -9,7 +9,7 @@ module External
         redirect_to external.new_pre_requeriment_path
       end 
 
-      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+      @requeriment_policy = Support::Attendance::RequerimentPolicy.new(session[:external_requeriment_cpf])
 
       @header_title = "Meus requerimentos"
       @header_backlink = external.new_pre_requeriment_path
@@ -17,7 +17,7 @@ module External
 
     def new
       @requeriment = @requeriments.new
-      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+      @requeriment_policy = Support::Attendance::RequerimentPolicy.new(session[:external_requeriment_cpf])
       
       @header_title = "Novo requerimento"
       @header_backlink = external.requeriments_path 
@@ -25,10 +25,10 @@ module External
     
     def create
       @requeriment = @requeriments.new(set_params)
-      @requeriment_service = Support::Attendance::RequerimentService.new(session[:external_requeriment_cpf])
+      @requeriment_policy = Support::Attendance::RequerimentPolicy.new(session[:external_requeriment_cpf])
 
       if @requeriment.save
-        redirect_to external.new_requeriment_requeriment_attachment_path(@requeriment)
+        redirect_to external.requeriment_requeriment_attachments_path(@requeriment)
       else
         render action: :new
       end
@@ -52,7 +52,7 @@ module External
 
     def set_params 
       params.require(:requeriment).permit(:name, :category_id, :telephone, :celphone, :city_id, 
-                                          :address, :document_number, :content)
+                                          :address, :document_number, :content, :born)
     end
 
     def set_requeriments

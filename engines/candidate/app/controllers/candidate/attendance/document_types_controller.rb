@@ -8,6 +8,7 @@ module Candidate
       
       def index
         session[:dependent_mirror_id] = params[:dependent_mirror_id] if params[:dependent_mirror_id].present?
+        @dependent_mirror_id = session[:dependent_mirror_id]
       end
 
       private

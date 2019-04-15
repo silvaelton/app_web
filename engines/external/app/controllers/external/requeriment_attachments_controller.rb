@@ -4,7 +4,7 @@ module External
   class RequerimentAttachmentsController < ApplicationController
     before_action :set_requeriment
 
-    def new
+    def index
       @requeriment_attachment = @requeriment.requeriment_attachments.new
       
       @header_title = "Novo requerimento"

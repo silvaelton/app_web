@@ -11,7 +11,7 @@
             .bold 1 de 4 passos
           .subtitle Selecione o tipo de requerimento
         .divider
-        = f.input :category_id, label: false, as: :select, collection: @requeriment_service.allowed_categories.map { |k,v| [k.name.humanize, k.id] } , include_blank: 'Selecione...', input_html: { id: 'category_id'}
+        = f.input :category_id, label: false, as: :select, collection: @requeriment_policy.allowed_categories.map { |k,v| [k.name.humanize, k.id] } , include_blank: 'Selecione...', input_html: { id: 'category_id'}
         = link_to "Avançar", "javascript:void(0)", class: 'btn btn-primary btn-block next ', data: { current: '#category', next: '#data'}
         #btn-category{style: "display: #{f.object.category_id.present? ? 'block' : 'none'}"}
         
@@ -23,6 +23,7 @@
         .divider
         = f.input :name, placeholder: "Informe seu nome"
         = f.input :cpf, input_html: { disabled: true}
+        = f.input :born, as: :string, input_html: { class: 'date', value: f.object.born ? localize(f.object.born) : nil}
         = f.input :telephone, as: :integer, placeholder: "Informe um telefone"
         = f.input :celphone, as: :integer, placeholder: "Informe outro telefone"
         = f.input :city_id, as: :select, collection: Support::Common::City.federal_district, include_blank: t(:include_blank)

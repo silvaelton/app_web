@@ -6,6 +6,9 @@ module Entity
 
     def new
       @session = Entity::Session.new
+
+      @header_title = "Minha entidade"
+      @header_backlink = external.entities_path
     end
     
     def create

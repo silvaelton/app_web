@@ -14,4 +14,4 @@
         .col-12
           .content-error
             = link_to "Sim, desejo remover", candidate.attendance_ticket_step_document_type_document_path(@ticket, @ticket_step, @ticket_document_type, @document), method: :delete, remote: true, class: "btn btn-danger btn-block", data: { disable_with: t(:disable_with)}
-            = link_to "Não, desejo cancelar", "javascript:void(0)", class: "btn btn-dark btn-block modal-close", data: { disable_with: t(:disable_with)}
+            = link_to "Não, desejo cancelar", "javascript:void(0)", class: "btn btn-dark btn-block modal-close", data: { disable_with: t(:disable_with)}            

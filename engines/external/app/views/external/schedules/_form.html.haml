@@ -1,0 +1,15 @@
+= simple_form_for @schedule, remote: true do |f|
+  = f.input :category_id, as: :select, collection: Support::Attendance::AgendaCategory.status_active.order(:name), include_blank: t(:include_blank)
+  = f.input :agenda_id, as: :select, collection:  f.object.category_id.present? ? Support::Attendance::Agenda.where(category_id: f.object.category_id) : nil, include_blank: t(:include_blank)
+  = f.input :date, as: :select, input_html: { id: 'date' }, include_blank: t(:include_blank)
+  = f.input :hour, as: :select, input_html: { id: 'hour' }, include_blank: t(:include_blank)
+  = f.input :name
+  = f.input :cpf
+  = f.input :born, as: :string, input_html: { class: 'date'}
+  = f.input :city_id, as: :select, collection: Support::Common::City.federal_district, include_blank: t(:include_blank)
+  = f.input :address
+  = f.input :document_number
+  = f.input :email
+  = f.input :telephone
+  = f.input :celphone
+  = f.submit "Agendar", class: 'btn btn-success btn-block'

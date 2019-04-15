@@ -12,6 +12,7 @@ External::Engine.routes.draw do
   
   resources :cadastres
   resources :schedules
+  resources :search_schedules
   resources :assistences
   resources :informations
 end

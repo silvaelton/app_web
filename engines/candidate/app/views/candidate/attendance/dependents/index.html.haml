@@ -11,9 +11,15 @@
               .card-body
                 .row
                   .col-12
-                    %p
+                    .h5
                       %b= dependent.name
                     = dependent.kinship.name rescue t(:no_info)
+                    %p
+                      %small
+                        - if attendance_dependent_label(ticket_step: @ticket_step, dependent_mirror: dependent)
+                          Documentação enviada
+                        - else
+                          Documentação pendente
       - else
         .card.mt-4
           .card-body
@@ -21,3 +27,12 @@
               .col-12.text-center
                 %small Não existem dependentes cadastrados.
 
+  .row.mt-4
+    .col-12
+      - if @ticket.policy.allow_close_dependent?(ticket_step_id: @ticket_step)
+        = link_to "Finalizar etapa", close_attendance_ticket_step_dependents_path(@ticket, @ticket_step), class: 'btn btn-success btn-block', data: { disable_with: t(:disable_with)}
+      - else
+        .card
+          .card-body
+            .text-center
+              É necessário enviar todos os itens pendentes para finalizar a etapa.

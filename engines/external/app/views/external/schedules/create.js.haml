@@ -1,0 +1,4 @@
+- if @schedule.errors.any?
+  $(".form-content").html("#{escape_javascript(render 'form')}");
+- else
+  

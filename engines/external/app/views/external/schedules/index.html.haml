@@ -1,8 +1,20 @@
-.container 
-  .row
-    .col-6
-      .card
-        .card-body
-    .col-6
-      .card
-        .card-body          
+.container
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_search_schedule_path}"} 
+        .card
+          .card-body
+            .row
+              .col-12
+                .title.bold Pesquisar
+                .title-xs Pesquisar meus agendamentos através do CPF
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_schedule_path(category_id: 2)}"}  
+        .card
+          .card-body
+            .row
+              .col-12
+                .title.bold Novo agendamento
+                .title-xs Realizar uma novo agendamento para atendimento
+                 

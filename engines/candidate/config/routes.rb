@@ -14,15 +14,30 @@ Candidate::Engine.routes.draw do
     get '/', to: 'tickets#index'
     
     resources :tickets do
+      get 'close'
+      
       resources :steps do 
+        resources :cadastre_contacts
         resources :cadastres
-        resources :dependents
-        resources :incomes
-        resources :contacts
         
+        resources :dependents do 
+          get 'close', on: :collection
+        end
+
+        resources :incomes do
+          get 'close', on: :collection
+        end
+        
+        get 'document_close'
+        
+        get 'reopen'
+        get 'reopen_step'
+
         resources :document_types do
+
           resources :documents do
             get 'delete'
+            
           end
         end
 

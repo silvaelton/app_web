@@ -4,4 +4,4 @@
 - else
   $(".modal").html("#{escape_javascript(render 'success')}");
   $(".modal").modal('show');
-  setTimeout(function() { window.location.href = "#{candidate.root_path}"; }, 3000)
+  setTimeout(function() { window.location.href = "#{attendance_ticket_steps_path(@ticket)}"; }, 3000)

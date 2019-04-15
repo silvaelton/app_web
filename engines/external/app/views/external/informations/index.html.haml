@@ -1,24 +1,45 @@
-.container 
-  .row
-    .col-6
-      .card
-        .card-body.text-center
-          = image_tag 'portal.png'
-          .title-icon Portal CODHAB
-    .col-6
-      .card
-        .card-body.text-center
-          = image_tag 'portal.png'
-          .title-icon Ações urbanas                
-  .mt-3
-  .row
-    .col-6
-      .card
-        .card-body.text-center
-          = image_tag 'portal.png'
-          .title-icon Mobilização social
-    .col-6
-      .card
-        .card-body.text-center
-          = image_tag 'portal.png'
-          .title-icon Habita Brasília              
+.container
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_entity_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'portal.png'
+              .col-9
+                .title.bold Portal CODHAB
+                .title-xs Pesquisar dados da entidade através do CNPJ
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_entity_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'portal.png'
+              .col-9
+                .title.bold Ações urbanas
+                .title-xs Pesquisar dados da entidade através do CNPJ
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_entity_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'portal.png'
+              .col-9
+                .title.bold Mobilização social
+                .title-xs Pesquisar dados da entidade através do CNPJ
+  .row.mt-2
+    .col-12
+      %a{href: "#{external.new_entity_path}"} 
+        .card
+          .card-body
+            .row
+              .col-3
+                = image_tag 'portal.png'
+              .col-9
+                .title.bold Habita Brasília
+                .title-xs Pesquisar dados da entidade através do CNPJ

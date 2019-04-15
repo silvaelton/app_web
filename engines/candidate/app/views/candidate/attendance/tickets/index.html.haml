@@ -1,27 +1,37 @@
 .container
-  - current_candidate.tickets.opened.limit(1).each do |ticket|
+  - if  current_candidate.policy.categories_allowed.present?
+    - if current_candidate.policy.new_ticket?
+      .row
+        .col-md-12
+          = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-primary btn-block', data: { disable_with: t(:disable_with)}            
+    
+    - else
+      - current_candidate.tickets.opened.limit(1).each do |ticket|
+        .row
+          .col-md-12
+            .subtitle.text-center.bold Atendimento atual
+        .row.mt-2
+          .col-md-12
+            %a{href: "#{candidate.attendance_ticket_steps_path(ticket)}"}
+              .card
+                .card-body
+                  .row
+                    .col-3
+                      = image_tag 'warning.png'
+                    .col-9
+                      .title.bold
+                        Atendimento ##{ticket.id}
+                      .title-sm
+                        %b= ticket.ticket_category.name
+                      %small.title-xs= ticket.situation_type.label_view_candidate.humanize rescue t(:no_info)
+  - else
     .row
       .col-md-12
-        .subtitle.text-center.bold Atendimento atual
-    .row.mt-2
-      .col-md-12
-        %a{href: "#{candidate.attendance_ticket_steps_path(ticket)}"}
-          .card
-            .card-body
-              .row
-                .col-3
-                  = image_tag 'warning.png'
-                .col-9
-                  .title.bold
-                    Atendimento ##{ticket.id}
-                  .title-sm
-                    %b= ticket.ticket_category.name
-                  %small.title-xs Pendente
-                    
-  - if current_candidate.policy.new_ticket_allowed?
-    .row
-      .col-md-12
-        = link_to "Iniciar novo atendimento", candidate.new_attendance_ticket_path, class: 'btn btn-primary btn-block', data: { disable_with: t(:disable_with)}            
+        .card
+          .card-body
+            .text-center
+              %small Não há atendimentos disponíveis para sua situação cadastral no momento.
+      
   %hr.divider
   .row.mb-2
     .col-md-12

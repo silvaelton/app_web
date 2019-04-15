@@ -5,6 +5,7 @@ module Candidate
     class Ticket < Support::Attendance::Ticket
       belongs_to :cadastre, class_name: "Candidate::Cadastre"
       belongs_to :ticket_category, foreign_key: :category_id
+      belongs_to :situation_type, required: false, class_name: "Support::Attendance::TicketSituationType"
 
       has_many :ticket_steps
       

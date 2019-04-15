@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      'external/schedule': 'agendamento'
+    attributes: 
+      'external/schedule':
+        category_id: 'Tipo de agenda'
+        agenda_id: 'Agenda'
+        date: "Data"
+        hour: "Horário"
+        name: "Nome"
+        cpf: "CPF"
+        born: "Data de nascimento"
+        city_id: "Cidade"
+        address: "Endereço"
+        document_number: "Processo (Opcional)"
+        email: "E-mail"
+        telephone: "Telefone"
+        celphone: "Celular"
+        

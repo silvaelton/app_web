@@ -7,9 +7,18 @@ module External
     end
 
     def new
+      @schedule = External::Schedule.new
+      
+      @header_title = "Novo agendamento"
+      @header_backlink = external.schedules_path
     end
-
+    
     def create
+      @schedule = External::Schedule.new(set_params)
+      @schedule.save
+      
+      @header_title = "Novo agendamento"
+      @header_backlink = external.schedules_path      
     end
 
     def edit
@@ -23,12 +32,12 @@ module External
 
     private
 
-    def set_requeriment
+    def set_params
     end
 
     def set_title
       @header_title = "Agendamentos"
-      @header_subtitle = "Listagem de agendamentos"
+      @header_backlink = "app_home"
     end
 
   end
