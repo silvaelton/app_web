@@ -8,7 +8,14 @@ Candidate::Engine.routes.draw do
   resources :requeriments
   resources :indications
   resources :questions
-  
+
+  resources :cadastre_shows do
+    get 'history_situation' 
+    get 'history_pontuation' 
+    get 'history_address' 
+    get 'history_occurrence' 
+    get 'history_dependent' 
+  end
 
   namespace :attendance do 
     get '/', to: 'tickets#index'

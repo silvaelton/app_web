@@ -1,0 +1,70 @@
+.container
+  .row#header-cadastre
+    .col-12
+      .card
+        .card-body
+          .title.bold= @cadastre.presenter.camel_case_name
+          %p.title-md= @cadastre.cpf.format_cpf
+          %p 
+            .bold Situação cadastral: 
+            = @cadastre.presenter.current_situation_name
+          %p 
+            .bold Programa: 
+            = @cadastre.presenter.current_program_name 
+
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.cadastre_show_history_situation_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'clipboard.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold Minhas situações
+                .title-xs Histórico de situações do meu cadastro
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.cadastre_show_history_pontuation_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'graph.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold Minhas pontuações
+                .title-xs Histórico de pontuações do meu cadastro
+
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.cadastre_show_history_address_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'house.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold Endereços vinculados
+                .title-xs Endereços vinculados ao meu cpf
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.cadastre_show_history_occurrence_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'warn.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold Ocorrências
+                .title-xs Histórico de ocorrencia ralacionadas ao meu cpf
+  .row.mt-2
+    .col-12
+      %a{href: "#{candidate.cadastre_show_history_dependent_path(current_candidate)}"} 
+        .card
+          .card-body
+            .row
+              .col-3.text-center
+                = image_tag 'companionship.png', width: 50, style: "margin-top: 20px;"
+              .col-9
+                .title.bold Meus dependentes
+                .title-xs Dependentes cadastrados no meu cpf
