@@ -16,3 +16,13 @@
   .row
     .col-md-12
       = link_to "Finalizar meu atendimento", attendance_ticket_close_path(@ticket), remote: true, class: 'btn btn-success btn-block'
+
+
+- if @ticket.ticket_category.ticket_category_terms.present? && @ticket.ticket_category.ticket_category_terms.where.not(term_id: @ticket.ticket_terms.map(&:term_id)).present?
+  - @ticket.ticket_category.ticket_category_terms.where.not(term_id: @ticket.ticket_terms.map(&:term_id)).limit(1).each do |ticket_category_term|
+    :javascript
+      $(document).on('ready', function() {
+        $(".modal").html("#{escape_javascript(render 'candidate/attendance/ticket_category_terms/show', ticket: @ticket, ticket_category_term: ticket_category_term)}");
+        $(".modal").modal("show");
+      });
+        

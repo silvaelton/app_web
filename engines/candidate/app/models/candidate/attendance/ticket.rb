@@ -8,6 +8,7 @@ module Candidate
       belongs_to :situation_type, required: false, class_name: "Support::Attendance::TicketSituationType"
 
       has_many :ticket_steps
+      has_many :ticket_terms, class_name: "Support::Attendance::TicketTerm"
       
       belongs_to :cadastre_mirror, required: false, class_name: "Candidate::Attendance::CadastreMirror"
       

@@ -16,7 +16,7 @@ module Candidate
     def attendance_step_url(ticket: nil, ticket_category_step: nil, dependent_mirror_id: nil)
       ticket_step = ticket.ticket_steps.find_by(category_step_id: ticket_category_step.id)
       
-      if ticket_step.data_updated?
+      if !ticket_step.nil? && ticket_step.data_updated?
         if ticket_category_step.document_required?
           if ticket_step.document?
             attendance_ticket_step_reopen_path(ticket, ticket_step)
@@ -40,7 +40,7 @@ module Candidate
       ticket_step = ticket.ticket_steps.find_by(category_step_id: ticket_category_step.id)
 
       if ticket_category_step.step_required?
-        if ticket_step.data_updated?
+        if !ticket_step.nil? && ticket_step.data_updated?
           if ticket_category_step.document_required?
             if ticket_step.document?
               image_tag 'checked.png'
@@ -62,7 +62,7 @@ module Candidate
       ticket_step = ticket.ticket_steps.find_by(category_step_id: ticket_category_step.id)
       html = ""
 
-      if ticket_step.data_updated?
+      if !ticket_step.nil? && ticket_step.data_updated?
         html += "<b>Dados:</b> Atualizado"
       else
         html += "<b>Dados:</b> Pendente"
@@ -71,7 +71,7 @@ module Candidate
       html += "<br />"
 
       if ticket_category_step.document_required?
-        if ticket_step.document?
+        if !ticket_step.nil? && ticket_step.document?
           html += "<b>Documentação:</b> Atualizada"
         else
           html += "<b>Documentação:</b> Pendente"
@@ -80,5 +80,6 @@ module Candidate
 
       html.html_safe
     end
+
   end
 end

@@ -16,6 +16,7 @@ Candidate::Engine.routes.draw do
     resources :tickets do
       get 'close'
       
+      resources :ticket_terms
       resources :steps do 
         resources :cadastre_contacts
         resources :cadastres
@@ -34,10 +35,8 @@ Candidate::Engine.routes.draw do
         get 'reopen_step'
 
         resources :document_types do
-
           resources :documents do
             get 'delete'
-            
           end
         end
 

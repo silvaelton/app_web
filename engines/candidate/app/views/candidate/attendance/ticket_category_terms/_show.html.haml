@@ -1,0 +1,12 @@
+.modal-dialog.modal-dialog-centered
+  .modal-content
+    .modal-header
+      .modal-title.text-center
+        .h4
+          %b Atenção
+    .modal-body.text-center
+      = ticket_category_term.term.content.html_safe
+    
+      .divider
+      
+      = link_to "Estou ciente", edit_attendance_ticket_ticket_term_path(ticket, ticket_category_term.term_id), class: 'btn btn-success btn-block'
